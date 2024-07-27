@@ -1,0 +1,286 @@
+/* __        __          _                  ____  _         _      
+ * \ \      / /_ _ _   _| |__   __ _ _ __  / ___|| |_ _   _| | ___ 
+ *  \ \ /\ / / _` | | | | '_ \ / _` | '__| \___ \| __| | | | |/ _ \
+ *   \ V  V / (_| | |_| | |_) | (_| | |     ___) | |_| |_| | |  __/
+ *    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    |____/ \__|\__, |_|\___|
+ *                 |___/                              |___/         
+ *
+ * By Me (2024)
+ * ---------------------------------------------------------------------------
+ */
+
+/* ---------------------------------------------------------------------------
+ * Colors
+ * --------------------------------------------------------------------------- */
+@define-color bg1 #fcf00a;
+@define-color fg1 #0a1b2b;
+/* @define-color bg1 #0a1b2b;
+@define-color fg1 #00f0ff; */
+
+@define-color bg2 rgba(10, 27, 43, 0.9);
+@define-color fg2 #00e2ea;
+
+@define-color logo #1793d1;
+
+@define-color warning-bg red;
+@define-color warning-fg black;
+
+@define-color battery-plugged #99d117;
+
+
+
+
+/* ---------------------------------------------------------------------------
+ * General
+ * --------------------------------------------------------------------------- */
+* {
+    border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	text-shadow: none;
+	-gtk-icon-shadow: none;
+    font-family: Hack Nerd Font;
+}
+
+#waybar {
+    background-color: transparent;
+    color: #0a1b2b; /*DELETE*/
+}
+
+
+/* ---------------------------------------------------------------------------
+ * Arrow/Triangles Shapes
+ * --------------------------------------------------------------------------- */
+#custom-arrow.left,
+#custom-arrow.right,
+#custom-arrow2.left,
+#custom-arrow2.right,
+#custom-arrow3.left,
+#custom-arrow3.right,
+#custom-separator.left,
+#custom-separator.right {
+    /* Determines the size of the waybar. 29, 33 and 42 are the best 
+    * values ​​where the borders don't show distortions.
+    */
+    font-size: 29px; 
+    color: @bg1;
+}
+
+#custom-arrow3.left,
+#custom-arrow3.right,
+#custom-arrow2.left,
+#custom-arrow2.right {
+    color: @bg2;
+}
+
+#custom-separator.left,
+#custom-separator.right {
+    background-color: @bg2;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * Modules Container 1
+ * --------------------------------------------------------------------------- */
+#window,
+#network,
+#backlight,
+#clock
+{
+    padding: 0 5px 0 5px;
+    font-size: 13px;
+    font-weight: bold;
+    /* text-shadow: 0px 1px 1px rgb(51, 255, 0); */
+    /* text-shadow: 1px 2px 2px #ef2125; */
+    background-color: @bg1;
+    color: @fg1;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * Modules Container 2
+ * --------------------------------------------------------------------------- */
+#workspaces,
+#battery,
+#bluetooth,
+#pulseaudio,
+#memory,
+#taskbar,
+#custom-power
+{
+    padding: 0 5px 0 5px;
+    font-size: 13px;
+    /*text-shadow: 1px 1px 1px rgb(0, 255, 242);*/
+    /* text-shadow: 1px 2px 2px #ef2125; */
+    background-color: @bg2;
+    color: @fg2;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * Workspaces
+ * --------------------------------------------------------------------------- */
+#workspaces {
+    padding-left: 0;
+    padding-right: 0;
+    background-color: unset;
+    /*border-radius: 15px;*/
+}
+
+#workspaces button {
+    transition: none;
+    color: #B5E8E6;
+    padding-left: 6px;
+    background-color: transparent;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#workspaces button.persistent {
+    transition: none;
+    color: #7ac5f7;
+    padding-right: 8px;
+    background-color: transparent;
+}
+
+#workspaces button.persistent label{
+    font-size: 16px;
+}
+
+#workspaces button.empty {
+    color: #acacac;
+    transition: none;
+    background-color: transparent;
+    padding-right: 6px;
+    padding-left: 8px;
+}
+
+#workspaces button.empty label{
+    font-size: 6px;
+}
+
+#workspaces button.active {
+    transition: none;
+    color: #ffd000;
+    background-color: transparent;
+}
+
+#workspaces button.active label{
+    font-size: 16px;
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: none;
+}
+
+/* ---------------------------------------------------------------------------
+ * Window
+ * --------------------------------------------------------------------------- */
+#window {
+    padding-left: 10px;
+    padding-right: 0;
+    font-size: 18px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Taskbar
+ * --------------------------------------------------------------------------- */
+#taskbar button {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#taskbar button:hover {
+    box-shadow: inherit;
+	text-shadow: inherit;
+    background: none;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * Custom Launcher
+ * --------------------------------------------------------------------------- */
+#custom-launcher {
+    font-size: 25px;
+    margin-left: 8px;
+    padding-left: 10px;
+    color: @logo;
+    background: transparent;
+}
+
+/* ---------------------------------------------------------------------------
+ * Custom Power
+ * --------------------------------------------------------------------------- */
+#custom-power {
+    padding: 0 10px 0 15px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ff0066;
+}
+
+/* ---------------------------------------------------------------------------
+ * Custom Updates
+ * --------------------------------------------------------------------------- */
+#custom-updates {
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    transition: none;
+    color: #161320;
+    background: #E8A2AF;
+}
+
+/* ---------------------------------------------------------------------------
+ * Custom Media
+ * --------------------------------------------------------------------------- */
+#custom-media {
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    transition: none;
+    color: #161320;
+    background: #F2CDCD;
+}
+
+/* ---------------------------------------------------------------------------
+ * Battery
+ * --------------------------------------------------------------------------- */
+#battery.charging,
+#battery.plugged {
+    color: @battery-plugged;
+}
+
+#battery.critical:not(.charging) {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        background-color: @warning-bg;
+        color: @warning-fg;
+    }
+}
+
+/* ---------------------------------------------------------------------------
+ * Tray
+ * --------------------------------------------------------------------------- */
+#tray {
+    margin-left: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+    transition: none;
+    color: #B5E8E0;
+    background: #161320;
+}

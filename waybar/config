@@ -1,0 +1,50 @@
+// __        __          _                
+// \ \      / /_ _ _   _| |__   __ _ _ __ 
+//  \ \ /\ / / _` | | | | '_ \ / _` | '__|
+//   \ V  V / (_| | |_| | |_) | (_| | |   
+//    \_/\_/ \__,_|\__, |_.__/ \__,_|_|   
+//                 |___/                  
+//
+// by Me (2024)
+// ---------------------------------------------------------------------------
+//
+{
+    "layer": "top",
+    "margin-right": 40,
+    "margin-left": 40,
+    "margin-top": 6,
+    // IMPORTING MODULES
+    "include": [
+        "~/.config/waybar/modules.json"
+    ],
+    // MODULES LAYOUT
+    "modules-left": [
+        "custom/launcher",
+        "custom/arrow#left",
+        "hyprland/window",
+        "custom/separator#left",
+        //"memory",
+        "wlr/taskbar",
+        "custom/arrow2#right"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "custom/arrow#left",
+        "network",
+        "custom/separator#left",
+        // "custom/separator#left",
+        "bluetooth",
+        "pulseaudio",
+        "custom/separator#right",
+        "backlight",
+        "custom/separator#left",
+        "battery",
+        "custom/separator#right",
+        "clock",
+        "custom/separator#left",
+        "custom/power",
+        "custom/arrow2#right"
+    ]
+}
