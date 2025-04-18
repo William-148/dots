@@ -11,3 +11,14 @@ bindkey "^[[1;3D" backward-word
 
 # INIT STARSHIP
 eval "$(starship init zsh)"
+
+# INIT ZOXIDE
+eval "$(zoxide init zsh)"
+
+# FAST NODE MANAGER (FNM)
+FNM_PATH="/home/wili/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi
+
