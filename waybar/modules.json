@@ -9,203 +9,184 @@
 // ---------------------------------------------------------------------------
 //
 {
-    // Workspaces
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "on-click": "activate",
-        "all-outputs": true,
-        "active-only": false,
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": [],
-            "6": []
-        },
-        "format": "{icon}",
-        "format-icons": {
-            "active": "󰮯",
-            "empty": " ",
-            "persistent": "󰊠"
-        }
+  // Workspaces
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "on-click": "activate",
+    "all-outputs": true,
+    "active-only": false,
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": []
     },
-    // Window
-    "hyprland/window": {
-        "format": "{initialTitle}",
-        "tooltip": true,
-        "tooltip-format": "{title}",
-        "all-outputs": true,
-        "rewrite-default": "",
-        "rewrite": {
-            "(.*)Mozilla Firefox": "󰈹 ",
-            "(.*)Edge": "󰇩 ",
-            "kitty": "󰄛 ",
-            "Visual Studio Code": "󰨞 ",
-            "Waypaper": "󰋩 ",
-            "Spotify Free": " ",
-            "nwg-look": " ",
-            "(.*)apariencia(.*)": "󱥚 ",
-            "will": " ",
-            "default": ""
-        },
-        "separate-outputs": true
-    },
-    // Taskbar
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close",
-        "on-clic-right": "fullscreen",
-        "app_ids-mapping": {
-            "firefoxdeveloperedition": "firefox-developer-edition"
-        },
-        "ignore-list": [
-            "kitty",
-            "rofi"
-        ],
-        "rewrite": {
-            "Firefox Web Browser": "Firefox",
-            "Foot Server": "Terminal"
-        }
-    },
-    // Launcher
-    "custom/launcher": {
-        "format": " ",
-        "on-click": "~/.config/rofi/launchers/type-1/launcher.sh",
-        "on-click-right": "killall rofi"
-    },
-    // Network
-    "network": {
-        "tooltip": true,
-        "format-wifi": " {bandwidthDownBits}   {bandwidthUpBits}",
-        "format-ethernet": "",
-        "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
-        "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
-        "tooltip-format-ethernet": "{ifname}  ",
-        "tooltip-format-disconnected": "Disconnected"
-    },
-    // Bluetooth
-    "bluetooth": {
-        // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
-        "format": " ",
-        "format-disabled": "󰂲 ", // an empty format will hide the module
-        "format-connected": " {device_alias}",
-        "tooltip-format": "{controller_alias}\t{controller_address}",
-        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
-        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
-    },
-    // Audio
-    "pulseaudio": {
-        "tooltip": false,
-        "scroll-step": 5,
-        "format": "{icon} {volume}%",
-        "format-muted": "  {volume}%",
-        "format-bluetooth": "󰂰 {volume}%",
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-        "format-icons": {
-            "headphones": " ",
-            "default": [
-                " ",
-                " ",
-                " "
-            ]
-        }
-    },
-    // Brightness
-    "backlight": {
-        "device": "intel_backlight",
-        "tooltip": false,
-        "format": "󰃠 {}%",
-        "on-scroll-up": "brightnessctl s +2%",
-        "on-scroll-down": "brightnessctl -n s 2%-"
-    },
-    // Battery
-    "battery": {
-        "states": {
-            "good": 95,
-            "warning": 30,
-            "critical": 10
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{time} {icon}",
-        "format-icons": [
-            " ",
-            " ",
-            " ",
-            " ",
-            " "
-        ]
-    },
-    // Clock
-    "clock": {
-        "tooltip": true,
-        "interval": 60,
-        "format": "{:%H:%M}",
-        "tooltip-format": "{:%Y-%m-%d}"
-    },
-    "memory": {
-        "interval": 30,
-        "format": "  {used}GiB",
-        "max-length": 15
-    },
-    "custom/media": {
-        "interval": 30,
-        "format": "{icon} {}",
-        "return-type": "json",
-        "max-length": 20,
-        "format-icons": {
-            "spotify": " ",
-            "default": " "
-        },
-        "escape": true,
-        "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
-        "on-click": "playerctl play-pause"
-    },
-    "custom/power": {
-        "format": " ",
-        "on-click": "wlogout"
-    },
-    "custom/arrow#left": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arrow#right": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arrow2#left": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arrow2#right": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/arrow3#left": {
-        "format": " ",
-        "tooltip": false
-    },
-    "custom/arrow3#right": {
-        "format": " ",
-        "tooltip": false
-    },
-    "custom/separator#left": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/separator#right": {
-        "format": "",
-        "tooltip": false
-    },
-    "custom/updates": {
-        "format": "{} Update(s)",
-        "exec": "checkupdates | wc -l",
-        "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
-        "interval": 15,
-        "on-click": "alacritty -e paru -Syu && notify-send 'The system has been updated' "
+    "format": "{icon}",
+    "format-icons": {
+      "active": "󰮯",
+      "empty": " ",
+      "persistent": "󰊠"
     }
+  },
+  // Taskbar
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "on-clic-right": "fullscreen",
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    },
+    "ignore-list": [
+      "kitty",
+      "rofi"
+    ],
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal"
+    }
+  },
+  // Launcher
+  "custom/launcher": {
+    "format": " ",
+    "on-click": "~/.config/rofi/launchers/type-1/launcher.sh",
+    "on-click-right": "killall rofi"
+  },
+  // Network
+  "network": {
+    "tooltip": true,
+    "interval": 15,
+    "format-wifi": "<span font='12'>󰑱 </span>: {bandwidthDownBits} <span font='10'> </span>",
+    "format-ethernet": "",
+    "format-disconnected": "󱛅  Disconnected",
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
+    "tooltip-format-wifi": "  {essid} ({signalStrength} %)\nIPv4 :: {ipaddr}",
+    "tooltip-format-ethernet": "{ifname}  ",
+    "tooltip-format-disconnected": "Disconnected"
+  },
+  // Bluetooth
+  "bluetooth": {
+    // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+    "format": "<span font='11'>󰂯 </span>{status}",
+    "format-disabled": "<span font='11'>󰂲 </span>Disabled", // an empty format will hide the module
+    "format-connected": "<span font='11'>󰂱 </span>{device_alias}",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+  // Audio 
+  "pulseaudio": {
+    "tooltip": false,
+    "scroll-step": 5,
+    "format": "<span font='10'>{icon}</span> {volume}%",
+    "format-muted": "<span font='10'> </span> {volume}%",
+    "format-bluetooth": "<span font='11'>󰂰</span> {volume}%",
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "format-icons": {
+      "headphones": " ",
+      "default": [
+        " ",
+        " ",
+        " "
+      ]
+    }
+  },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+  },
+  // Brightness
+  "backlight": {
+    "device": "intel_backlight",
+    "tooltip": false,
+    "format": "<span font='10'>󰃠 </span>{}%",
+    "on-scroll-up": "brightnessctl s +2%",
+    "on-scroll-down": "brightnessctl -n s 2%-"
+  },
+  // Battery
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "<span font='11'>{icon}</span> {capacity}%",
+    "format-charging": "<span font='11'> </span>{capacity}%",
+    "format-plugged": "<span font='11'> </span>{capacity}%",
+    "format-alt": "{time} <span font='11'>{icon}</span>",
+    "format-icons": [
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
+    ]
+  },
+  // Clock
+  "clock": {
+    "tooltip": true,
+    "interval": 60,
+    "format": "<span font='10'> </span> {:%a %d %H:%M}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "left",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#fcf00a'><b>{}</b></span>",
+        "days": "<span color='#0afcf5'><b>{}</b></span>",
+        "weeks": "<span color='#9eff00'><b>W{}</b></span>",
+        "weekdays": "<span color='#fe4686'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  "hyprland/language": {
+    "format": "<span font='14'>󰌓 </span>{}",
+    "format-es": "Lat",
+    "format-en": "En"
+  },
+  "memory": {
+    "interval": 20,
+    "format": "<span font='10'> </span> {used}GiB {percentage}%",
+    "max-length": 15
+  },
+  "custom/power": {
+    "format": "⏼ ",
+    "on-click": "wlogout"
+  },
+  "custom/arrow#left": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/arrow#right": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/arrow2#left": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/arrow2#right": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/separator#left": {
+    "format": "",
+    "tooltip": false
+  },
+  "custom/separator#right": {
+    "format": "",
+    "tooltip": false
+  }
 }

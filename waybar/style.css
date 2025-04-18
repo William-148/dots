@@ -17,7 +17,7 @@
 /* @define-color bg1 #0a1b2b;
 @define-color fg1 #00f0ff; */
 
-@define-color bg2 rgba(10, 27, 43, 0.9);
+@define-color bg2 rgba(10, 27, 43, 1);
 @define-color fg2 #00e2ea;
 
 @define-color logo #1793d1;
@@ -59,8 +59,6 @@
 #custom-arrow.right,
 #custom-arrow2.left,
 #custom-arrow2.right,
-#custom-arrow3.left,
-#custom-arrow3.right,
 #custom-separator.left,
 #custom-separator.right {
    /* Determines the size of the waybar.
@@ -68,12 +66,10 @@
     * - Hack Nerd Font: 29, 33, 42 px
     * - Hurmit Nerd Font: 26, 31 px
     */
-    font-size: 26px; 
+    font-size: 21px; 
     color: @bg1;
 }
 
-#custom-arrow3.left,
-#custom-arrow3.right,
 #custom-arrow2.left,
 #custom-arrow2.right {
     color: @bg2;
@@ -88,13 +84,14 @@
 /* ---------------------------------------------------------------------------
  * Modules Container 1
  * --------------------------------------------------------------------------- */
-#window,
+#custom-launcher,
 #network,
-#backlight,
-#clock
+#pulseaudio,
+#pulseaudio-slider,
+#backlight
 {
     padding: 0 5px 0 5px;
-    font-size: 13px;
+    font-size: 11px;
     /*font-weight: bold;*/
     /* text-shadow: 0px 1px 1px rgb(51, 255, 0); */
     /* text-shadow: 1px 2px 2px #ef2125; */
@@ -109,13 +106,14 @@
 #workspaces,
 #battery,
 #bluetooth,
-#pulseaudio,
 #memory,
 #taskbar,
-#custom-power
+#custom-power,
+#clock,
+#language
 {
     padding: 0 5px 0 5px;
-    font-size: 13px;
+    font-size: 11px;
     /*font-weight: bold;*/
     /*text-shadow: 1px 1px 1px rgb(0, 255, 242);*/
     /* text-shadow: 1px 2px 2px #ef2125; */
@@ -150,7 +148,7 @@
 }
 
 #workspaces button.persistent label{
-    font-size: 16px;
+    font-size: 14px;
 }
 
 #workspaces button.empty {
@@ -172,7 +170,7 @@
 }
 
 #workspaces button.active label{
-    font-size: 16px;
+    font-size: 14px;
 }
 
 #workspaces button:hover {
@@ -181,14 +179,6 @@
     background: none;
 }
 
-/* ---------------------------------------------------------------------------
- * Window
- * --------------------------------------------------------------------------- */
-#window {
-    padding-left: 10px;
-    padding-right: 0;
-    font-size: 18px;
-}
 
 /* ---------------------------------------------------------------------------
  * Taskbar
@@ -209,20 +199,43 @@
  * Custom Launcher
  * --------------------------------------------------------------------------- */
 #custom-launcher {
-    font-size: 25px;
-    margin-left: 8px;
+    font-size: 21px;
     padding-left: 10px;
-    color: @logo;
-    background: transparent;
+    /* color: @logo; */
+    /* background: transparent; */
 }
+
+
+/* ---------------------------------------------------------------------------
+ * Audio
+ * --------------------------------------------------------------------------- */
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+#pulseaudio-slider trough {
+    min-height: 5px;
+    min-width: 65px;
+    border-radius: 3px;
+    background-color: #ff6083;
+}
+#pulseaudio-slider highlight {
+    border-radius: 3px 0 0 3px;
+    background-color: black;
+}
+
 
 /* ---------------------------------------------------------------------------
  * Custom Power
  * --------------------------------------------------------------------------- */
 #custom-power {
-    padding: 0 10px 0 15px;
+    padding: 0 5px 0 10px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
     color: #ff0066;
 }
 
@@ -239,18 +252,6 @@
     background: #E8A2AF;
 }
 
-/* ---------------------------------------------------------------------------
- * Custom Media
- * --------------------------------------------------------------------------- */
-#custom-media {
-    margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 10px;
-    transition: none;
-    color: #161320;
-    background: #F2CDCD;
-}
 
 /* ---------------------------------------------------------------------------
  * Battery

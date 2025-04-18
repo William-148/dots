@@ -12,19 +12,18 @@
     "layer": "top",
     "margin-right": 10,
     "margin-left": 40,
-    "margin-top": 6,
+    "margin-top": 0,
     // IMPORTING MODULES
     "include": [
         "~/.config/waybar/modules.json"
     ],
     // MODULES LAYOUT
     "modules-left": [
-        "custom/launcher",
         "custom/arrow#left",
-        "hyprland/window",
-        "custom/separator#left",
-        //"memory",
+        "custom/launcher",
+        "custom/arrow#right",
         //"wlr/taskbar",
+        "custom/arrow2#left",
         "hyprland/workspaces",
         "custom/arrow2#right"
     ],
@@ -32,19 +31,24 @@
     //    "hyprland/workspaces"
     //],
     "modules-right": [
-        "custom/arrow#left",
+        "custom/arrow2#left",
+        "memory",
+        "custom/separator#right",
         "network",
         "custom/separator#left",
-        // "custom/separator#left",
         "bluetooth",
-        "pulseaudio",
         "custom/separator#right",
-        "backlight",
+        "pulseaudio",
+        "pulseaudio/slider",
         "custom/separator#left",
         "battery",
         "custom/separator#right",
-        "clock",
+        "backlight",
         "custom/separator#left",
+        "hyprland/language",
+        "clock",
+        "custom/arrow2#right",
+        "custom/arrow2#left",
         "custom/power",
         "custom/arrow2#right"
     ]
