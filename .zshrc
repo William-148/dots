@@ -15,6 +15,12 @@ eval "$(starship init zsh)"
 # INIT ZOXIDE
 eval "$(zoxide init zsh)"
 
+# ALIAS FOR LSD
+alias ls='lsd'
+
+# ALIAS FOR BAT
+alias cat='bat'
+
 # FAST NODE MANAGER (FNM)
 FNM_PATH="/home/wili/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
