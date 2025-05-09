@@ -1,63 +1,70 @@
+# Pipes ╰─ ╭─
+# Powerline symbols                                     
+# Wedges 🭧🭒 🭣🭧🭓
+# Random noise 🬖🬥🬔🬗
+
 format = """
-[░▒▓█](#6498f2)\
+[🬗🬥█](#fcf00a)\
 $os\
 $username\
-[](bg:#abcbed fg:#6498f2)\
+[](bg:#321313 fg:#fcf00a)\
 $directory\
-[](fg:#abcbed bg:#394260)\
+[](fg:#321313 bg:#1c3a44)\
 $git_branch\
 $git_status\
-[](fg:#394260 bg:#212736)\
+[](fg:#1c3a44 bg:#212736)\
 $nodejs\
 $rust\
 $golang\
 $php\
-[](fg:#212736 bg:#1d2230)\
+[](fg:#212736 bg:#1d2230)\
 $time\
-[ ](fg:#1d2230)\
+[█🬥🬖🬖](fg:#1d2230)\
 \n$character"""
 
 [username]
 show_always = true
-style_user = "bg:#6498f2 fg:#151b44"
-style_root = "bg:#9A348E"
+style_user = "bg:#fcf00a fg:#151b44"
+style_root = "bold bg:#fcf00a fg:#b8005a"
 format = '[$user ]($style)'
 disabled = false
+aliases = { "root" = "root " }
 
 [os]
-style = "bg:#6498f2 fg:#151b44"
+style = "bg:#fcf00a fg:#151b44"
 disabled = false
 
 [os.symbols]
-Arch = "  "
+Arch = " "
 
 [directory]
-style = "fg:#151b44 bg:#abcbed"
+style = "bg:#321313 fg:#fd1b58 "
 format = "[ $path ]($style)"
 truncation_length = 4
 truncation_symbol = "…/"
 
 [directory.substitutions]
-"Documents" = "󰈙 "
+"Documents" = "󱧶 "
+"Projects" = " "
 "Downloads" = " "
 "Music" = " "
 "Pictures" = " "
-"Documentos" = "󰈙 "
+"Documentos" = "󱧶 "
 "Descargas" = " "
 "Música" = " "
 "Imágenes" = " "
 
 [git_branch]
 symbol = ""
-style = "bg:#394260"
-format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+style = "bg:#1c3a44"
+format = '[[ $symbol $branch ](fg:#2f96a4 bg:#1c3a44)]($style)'
 
 [git_status]
-style = "bg:#394260"
-format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+style = "bg:#1c3a44"
+format = '[[($all_status$ahead_behind )](fg:#2f96a4 bg:#1c3a44)]($style)'
 
 [nodejs]
-symbol = ""
+symbol = " "
 style = "bg:#212736"
 format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 
@@ -80,5 +87,4 @@ format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#1d2230"
-format = '[[   $time ](fg:#a0a9cb bg:#1d2230)]($style)'
-
+format = '[[   $time ](fg:#1cf58e bg:#1d2230)]($style)'
