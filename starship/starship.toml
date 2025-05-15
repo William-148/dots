@@ -1,10 +1,5 @@
-# Pipes ╰─ ╭─
-# Powerline symbols                                     
-# Wedges 🭧🭒  🭣🭧🭓  🭞  🭃 
-# Random noise 🬖 🬥 🬔 🬗 🬈 🬅   Example: 🬈🬖🬥🬅  🬖🬥🬔🬗
-
 format = """
-[🬗🬥█](#fcf00a)\
+[𜶉𜴟█](#fcf00a)\
 $os\
 $username\
 [](bg:#321313 fg:#fcf00a)\
@@ -24,8 +19,8 @@ $time\
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]
-success_symbol = "[🬖](bold fg:#fcf00a)[ ❯](bold bg:#fcf00a fg:#151b44)[🭞](bold fg:#fcf00a)"
-error_symbol = "[🬖](bold fg:red)[ ✗](bold bg:red fg:#151b44)[🭞](bold fg:red)"
+success_symbol = "[𜵔𜷙](bold fg:#fcf00a)[❯](bold bg:#fcf00a fg:#151b44)[🭝🭘](bold fg:#fcf00a)"
+error_symbol = "[𜵔𜷙](bold fg:red)[✗](bold bg:red fg:#151b44)[🭝🭘](bold fg:red)"
 
 [username]
 show_always = true
