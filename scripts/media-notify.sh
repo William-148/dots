@@ -29,19 +29,19 @@ case "$NOTIFICATION_APP_NAME" in
 "$AUDIO_MUTE_TYPE")
   SHOW_PROGRESS_BAR=0
   MUTED_STATUS=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}')
-  VALUE="󱄠 "
+  VALUE="󱄠"
 
   if [ "$MUTED_STATUS" = "[MUTED]" ]; then
-    VALUE="󰖁 "
+    VALUE="󰖁"
   fi
   ;;
 "$AUDIO_PLAY_TYPE")
   SHOW_PROGRESS_BAR=0
   STATUS=$(sleep 0.1 && playerctl status)
-  VALUE=" "
+  VALUE=""
 
   if [ "$STATUS" = "Playing" ]; then
-    VALUE=" "
+    VALUE=""
   fi
   ;;
 *)
