@@ -2,9 +2,9 @@ format = """
 [𜶉𜴟█](#fcf00a)\
 $os\
 $username\
-[](bg:#321313 fg:#fcf00a)\
+[](bg:#0a242b fg:#fcf00a)\
 $directory\
-[](fg:#321313 bg:#1c3a44)\
+[](fg:#0a242b bg:#1c3a44)\
 $git_branch\
 $git_status\
 [](fg:#1c3a44 bg:#212736)\
@@ -38,7 +38,7 @@ disabled = false
 Arch = " "
 
 [directory]
-style = "bg:#321313 fg:#fd1b58 "
+style = "bg:#0a242b fg:#F63369"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -87,4 +87,4 @@ format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 disabled = false
 time_format = "%R" # Hour:Minute Format
 style = "bg:#1d2230"
-format = '[[   $time ](fg:#1cf58e bg:#1d2230)]($style)'
+format = '[[   $time ](fg:#FE7371 bg:#1d2230)]($style)'
