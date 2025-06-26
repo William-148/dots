@@ -26,7 +26,7 @@
     "format": "{icon}",
     "format-icons": {
       "active": "󰮯",
-      "empty": " ",
+      "empty": "●",
       "persistent": "󰊠"
     }
   },
@@ -52,7 +52,8 @@
   // Launcher
   "custom/launcher": {
     "format": " ",
-    "on-click": "~/.config/rofi/launchers/type-1/launcher.sh",
+    // "format": " ",
+    "on-click": "~/.config/rofi/launchers/type-3/launcher.sh",
     "on-click-right": "killall rofi"
   },
   // Network
@@ -72,9 +73,9 @@
     // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
     "format": "<span font='11'>󰂯 </span>{status}",
     "format-disabled": "<span font='11'>󰂲 </span>Disabled", // an empty format will hide the module
-    "format-connected": "<span font='11'>󰂱 </span>{device_alias}",
+    "format-connected": "<span font='12'>󰂱 </span><span font='11' color='#97ff00'>󰪥 </span>",
     "tooltip-format": "{controller_alias}\t{controller_address}",
-    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-connected": "Connected to:\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
   },
   // Audio 
@@ -83,8 +84,10 @@
     "scroll-step": 5,
     "format": "<span font='10'>{icon}</span> {volume}%",
     "format-muted": "<span font='10'> </span> {volume}%",
-    "format-bluetooth": "<span font='11'>󰂰</span> {volume}%",
-    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+    "format-bluetooth": "<span font='10'>󰂰</span> {volume}%",
+    "on-click": "~/.config/scripts/audio-mute.sh",
+    "on-scroll-up": "~/.config/scripts/volume.sh 5%+",
+    "on-scroll-down": "~/.config/scripts/volume.sh 5%-",
     "format-icons": {
       "headphones": " ",
       "default": [
@@ -104,8 +107,8 @@
     "device": "intel_backlight",
     "tooltip": false,
     "format": "<span font='10'>󰃠 </span>{}%",
-    "on-scroll-up": "brightnessctl s +2%",
-    "on-scroll-down": "brightnessctl -n s 2%-"
+    "on-scroll-up": "~/.config/scripts/brightness.sh +2%",
+    "on-scroll-down": "~/.config/scripts/brightness.sh 2%-"
   },
   // Battery
   "battery": {
@@ -114,10 +117,10 @@
       "warning": 30,
       "critical": 20
     },
-    "format": "<span font='11'>{icon}</span> {capacity}%",
-    "format-charging": "<span font='11'> </span>{capacity}%",
-    "format-plugged": "<span font='11'> </span>{capacity}%",
-    "format-alt": "{time} <span font='11'>{icon}</span>",
+    "format": "<span font='10'>{icon}</span> {capacity}%",
+    "format-charging": "<span font='10'> </span>{capacity}%",
+    "format-plugged": "<span font='10'> </span>{capacity}%",
+    "format-alt": "{time} <span font='10'>{icon}</span>",
     "format-icons": [
       " ",
       " ",
@@ -152,18 +155,23 @@
     }
   },
   "hyprland/language": {
-    "format": "<span font='14'>󰌓 </span>{}",
+    "format": "<span font='13'>󰌓 </span>{}",
     "format-es": "Lat",
     "format-en": "En"
   },
+  "hyprland/submap": {
+    // "format": " {}",
+    "format": " ",
+    "max-length": 20,
+    "tooltip": true
+  },
   "memory": {
     "interval": 20,
-    "format": "<span font='10'> </span> {used}GiB {percentage}%",
-    "max-length": 15
+    "format": "<span font='12'> </span>{used}GiB {percentage}%"
   },
   "custom/power": {
     "format": "⏼ ",
-    "on-click": "wlogout"
+    "on-click": "wlogout -b 6"
   },
   "custom/arrow#left": {
     "format": "",

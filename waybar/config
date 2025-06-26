@@ -9,47 +9,48 @@
 // ---------------------------------------------------------------------------
 //
 {
-    "layer": "top",
-    "margin-right": 10,
-    "margin-left": 40,
-    "margin-top": 0,
-    // IMPORTING MODULES
-    "include": [
-        "~/.config/waybar/modules.json"
-    ],
-    // MODULES LAYOUT
-    "modules-left": [
-        "custom/arrow#left",
-        "custom/launcher",
-        "custom/arrow#right",
-        //"wlr/taskbar",
-        "custom/arrow2#left",
-        "hyprland/workspaces",
-        "custom/arrow2#right"
-    ],
-    //"modules-center": [
-    //    "hyprland/workspaces"
-    //],
-    "modules-right": [
-        "custom/arrow2#left",
-        "memory",
-        "custom/separator#right",
-        "network",
-        "custom/separator#left",
-        "bluetooth",
-        "custom/separator#right",
-        "pulseaudio",
-        "pulseaudio/slider",
-        "custom/separator#left",
-        "battery",
-        "custom/separator#right",
-        "backlight",
-        "custom/separator#left",
-        "hyprland/language",
-        "clock",
-        "custom/arrow2#right",
-        "custom/arrow2#left",
-        "custom/power",
-        "custom/arrow2#right"
-    ]
+  "layer": "top",
+  "margin-right": 10,
+  "margin-left": 40,
+  "margin-top": 0,
+  // IMPORTING MODULES
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
+  // MODULES LAYOUT
+  "modules-left": [
+    "custom/arrow#left",
+    "custom/launcher",
+    "custom/arrow#right",
+    //"wlr/taskbar",
+    "custom/arrow2#left",
+    "hyprland/workspaces",
+    "custom/arrow2#right"
+  ],
+  //"modules-center": [
+  //    "hyprland/workspaces"
+  //],
+  "modules-right": [
+    "custom/arrow2#left",
+    "memory",
+    "custom/separator#right",
+    "network",
+    "custom/separator#left",
+    "bluetooth",
+    "custom/separator#right",
+    "pulseaudio",
+    "pulseaudio/slider",
+    "custom/separator#left",
+    "battery",
+    "custom/separator#right",
+    "backlight",
+    "custom/separator#left",
+    "hyprland/submap",
+    "hyprland/language",
+    "clock",
+    "custom/arrow2#right",
+    "custom/arrow2#left",
+    "custom/power",
+    "custom/arrow2#right"
+  ]
 }
