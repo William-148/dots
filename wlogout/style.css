@@ -17,6 +17,7 @@ window {
 
 button {
     background-color: @main-bg;
+    color: @main-fg;
     outline-style: none;
     border: none;
     border-width: 0px;

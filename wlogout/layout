@@ -11,12 +11,6 @@
     "keybind" : "e"
 }
 {
-    "label" : "hibernate",
-    "action" : "hyprlock & disown && systemctl hibernate",
-    "text" : "Hibernate",
-    "keybind" : "h"
-}
-{
     "label" : "suspend",
     "action": "hyprlock & disown && systemctl suspend",
     "text" : "Suspend [u]",
