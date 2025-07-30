@@ -53,14 +53,14 @@
   "custom/launcher": {
     "format": " ",
     // "format": " ",
-    "on-click": "~/.config/rofi/launchers/type-3/launcher.sh",
+    "on-click": "rofi -show drun -run-command 'uwsm app -- {cmd}'",
     "on-click-right": "killall rofi"
   },
   // Network
   "network": {
     "tooltip": true,
     "interval": 15,
-    "format-wifi": "<span font='12'>󰑱 </span>: {bandwidthDownBits} <span font='10'> </span>",
+    "format-wifi": "<span font='14'> </span> {bandwidthDownBits} <span font='12'>󰅢 </span>",
     "format-ethernet": "",
     "format-disconnected": "󱛅  Disconnected",
     "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
@@ -117,16 +117,12 @@
       "warning": 30,
       "critical": 20
     },
-    "format": "<span font='10'>{icon}</span> {capacity}%",
-    "format-charging": "<span font='10'> </span>{capacity}%",
-    "format-plugged": "<span font='10'> </span>{capacity}%",
-    "format-alt": "{time} <span font='10'>{icon}</span>",
+    "format": "{capacity}% <span font='13'>{icon}</span>",
+    "format-charging": "{capacity}% <span font='13'>{icon}󱐌</span>",
+    "format-plugged": "{capacity}% <span font='13'>{icon}󰚥</span>",
+    "format-alt": "{time} <span font='12'>{icon}</span>",
     "format-icons": [
-      " ",
-      " ",
-      " ",
-      " ",
-      " "
+      "󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"
     ]
   },
   // Clock

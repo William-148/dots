@@ -1,0 +1,28 @@
+# T O O L K I T   B A C K E N D   V A R I A B L E S
+export GDK_BACKEND=wayland,x11,*
+
+# X D G   V A R I A B L E S
+export XDG_MENU_PREFIX=arch-
+
+# Q t   V A R I A B L E S
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# export QT_SCALE_FACTOR=1.25
+export QT_QPA_PLATFORM=wayland;xcb
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_QPA_PLATFORMTHEME=qt5ct
+export QT6CT_PLATFORMTHEME=qt6ct
+export QT_STYLE_OVERRIDE=kvantum
+
+# T H E M I N G   R E L A T E D   V A R I A B L E S
+# export GTK_THEME=WhiteSur-Dark
+# export XCURSOR_THEME=Kitty
+# export XCURSOR_SIZE=24
+
+# N V I D I A   V A R I A B L E S
+# export LIBVA_DRIVER_NAME=nvidia
+# export __GLX_VENDOR_LIBRARY_NAME=nvidia
+
+# O T H E R   V A R I A B L E S
+export GDK_SCALE=1
+export MOZ_ENABLE_WAYLAND=1
+ 

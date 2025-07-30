@@ -20,10 +20,9 @@ eval "$(starship init zsh)"
 # INIT ZOXIDE
 eval "$(zoxide init zsh)"
 
-# ALIAS FOR LSD
+# ALIAS
+alias update='sudo pacman -Syu'
 alias ls='lsd'
-
-# ALIAS FOR BAT
 # alias cat='bat'
 
 # FAST NODE MANAGER (FNM)
@@ -32,4 +31,3 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "`fnm env`"
 fi
-
