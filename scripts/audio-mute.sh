@@ -5,7 +5,7 @@ set -e # Stop execution if any command fails
 wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
 # Show the current mute state
-NOTIFY_APP_NAME="audio-mute"
+NOTIFY_APP_NAME="icon-indicator"
 CURRENT_STATUS=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $3}')
 NOTIFY_VALUE="󱄠"
 

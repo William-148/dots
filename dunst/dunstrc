@@ -1,59 +1,87 @@
 [global]
-monitor = 0
-follow = mouse
-origin = top-right offset = 20x73
-offset = 20x73
-geometry = "280x50-20+200"
-indicate_hidden = no
-shrink = no
-separator_height = 4
-separator_color = yes
-padding = 20
-horizontal_padding = 20
-frame_width = 2
-sort = no
-idle_threshold = 120
-font = Rubik 13
-line_height = 4
-markup = full
-format = "<b>%s</b>\n%b"
-alignment = left
-show_age_threshold = 60
-word_wrap = yes
-ignore_newline = no
-stack_duplicates = false
-hide_duplicate_count = yes
-show_indicators = no
-icon_position = left
-max_icon_size = 48
-sticky_history = no
-history_length = 20
-browser = firefox
-always_run_script = true
-title = Dunst
-class = Dunst
-corner_radius = 10
+# --- Position & Behavior ---
+  monitor = 0
+  follow = mouse
+  origin = top-right
+  width = (300, 425)
+  # height = (40, 200)
+  offset = (40, 60)
+  shrink = no
+  alignment = left
+  word_wrap = yes
+  ignore_newline = no
+  sort = no
 
-[shortcuts]
-close = ctrl+shift+space
-close_all = ctrl+shift+space
-history = ctrl+grave
-context = ctrl+shift+period
+# --- Appearance & Style ---
+  padding = 15
+  horizontal_padding = 20
+  separator_height = 4
+  line_height = 0
+  corner_radius = 32
+  frame_width = 3
+  frame_color = "#75757544"
+  background = "#001C1C88"
+  foreground = "#AEC1D1"
+  font = "Rajdhani Medium 14"
+
+# --- Notification Format ---
+  format = "<span color='#E7EDEC'><b>%s</b></span>\n%b"
+
+# --- Icons ---
+  icon_position = left
+  max_icon_size = 72
+
+# --- Timing & Duplicates ---
+  idle_threshold = 120
+  show_age_threshold = 60
+  stack_duplicates = false
+  hide_duplicate_count = yes
+  show_indicators = no
+
+# --- History ---
+  sticky_history = no
+  history_length = 20
+
+# --- Scripts & Execution ---
+  always_run_script = true
+  browser = firefox
+
+# --- Identity ---
+  title = Dunst
+  class = Dunst
+
+# --- Markup ---
+  markup = full
+
 
 [urgency_low]
-timeout = 4
-background = "#282828"
-foreground = "#EBDBB2"
-frame_color = "#B3925F"
+  timeout = 5
 
 [urgency_normal]
-timeout = 8
-background = "#282828"
-foreground = "#EBDBB2"
-frame_color = "#B3925F"
+  timeout = 12
 
 [urgency_critical]
-timeout = 0
-background = "#1D2021"
-foreground = "#EEAA00"
-frame_color = "#EEAA00"
+  timeout = 0
+  background = "#1C000088"
+  frame_color = "#00CED1"
+
+[progress-bar]
+  appname = "progress-bar"
+  urgency = low
+  timeout = 2
+  background = "#0F0F0F88"
+  foreground = "#F54B4C"
+  frame_color = "#E73159"
+  highlight = "#FFFF33"
+  alignment = center
+  format = "<span color='#63F7F9' size='28pt'>%s</span><span font='Orbitron SemiBold 20'>%p</span>\n%b"
+
+[icon-indicator]
+  appname = "icon-indicator"
+  urgency = low
+  timeout = 1
+  background = "#0F0F0F88"
+  foreground = "#F54B4C"
+  frame_color = "#E73159"
+  alignment = center
+  format = "<span color='#E73159' size='64pt'>%s</span>\n%b"

@@ -5,7 +5,7 @@ set -e # Stop execution if any command fails
 playerctl play-pause
 
 # Show the updated play/pause status
-NOTIFY_APP_NAME="play-pause"
+NOTIFY_APP_NAME="icon-indicator"
 CURRENT_STATUS=$(sleep 0.1 && playerctl status)
 NOTIFY_VALUE=""
 

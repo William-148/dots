@@ -11,10 +11,10 @@ fi
 wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ "$1"
 
 # Show the updated volume
-NOTIFY_APP_NAME="volume"
+NOTIFY_APP_NAME="progress-bar"
 UPDATED_VOLUME=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2 * 100}')
 
 notify-send \
   -a $NOTIFY_APP_NAME \
   -h string:x-canonical-private-synchronous:$NOTIFY_APP_NAME \
-  -h int:value:$UPDATED_VOLUME ""
+  -h int:value:$UPDATED_VOLUME "󰖀 "

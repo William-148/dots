@@ -10,7 +10,7 @@ fi
 brightnessctl -n s "$1"
 
 # Show the updated brightness level
-NOTIFY_APP_NAME="brightness"
+NOTIFY_APP_NAME="progress-bar"
 BRIGHTNESS=$(brightnessctl g)
 MAX=$(brightnessctl m)
 
@@ -24,4 +24,4 @@ BRIGHT_LEVEL=$(awk "BEGIN { printf \"%d\", ($BRIGHTNESS / $MAX) * 100 }")
 notify-send \
   -a $NOTIFY_APP_NAME \
   -h string:x-canonical-private-synchronous:$NOTIFY_APP_NAME \
-  -h int:value:$BRIGHT_LEVEL ""
+  -h int:value:$BRIGHT_LEVEL "󰃠 "
