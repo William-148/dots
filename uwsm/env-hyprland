@@ -8,7 +8,6 @@ export HYPRCURSOR_THEME=HyprSonic
 export HYPRCURSOR_SIZE=32
 
 # H Y P R L A N D   C O N F I G   D I R S
-#export HYPRSHOT_DIR=/home/willi/Pictures/Screenshots
 export HYPRSHOT_DIR="$HOME/Pictures/Screenshots"
 
 # D R I   D E V I C E   S E L E C T I O N

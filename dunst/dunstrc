@@ -3,7 +3,7 @@
   monitor = 0
   follow = mouse
   origin = top-right
-  width = (300, 425)
+  width = (280, 425)
   # height = (40, 200)
   offset = (40, 60)
   shrink = no
@@ -17,12 +17,12 @@
   horizontal_padding = 20
   separator_height = 4
   line_height = 0
-  corner_radius = 32
+  corner_radius = 28
   frame_width = 3
   frame_color = "#75757544"
   background = "#001C1C88"
   foreground = "#AEC1D1"
-  font = "Rajdhani Medium 14"
+  font = "Rajdhani Medium 12"
 
 # --- Notification Format ---
   format = "<span color='#E7EDEC'><b>%s</b></span>\n%b"
@@ -74,7 +74,7 @@
   frame_color = "#E73159"
   highlight = "#FFFF33"
   alignment = center
-  format = "<span color='#63F7F9' size='28pt'>%s</span><span font='Orbitron SemiBold 20'>%p</span>\n%b"
+  format = "<span color='#63F7F9' size='24pt'>%s</span><span font='Orbitron SemiBold 16'>%p</span>\n%b"
 
 [icon-indicator]
   appname = "icon-indicator"
@@ -84,4 +84,4 @@
   foreground = "#F54B4C"
   frame_color = "#E73159"
   alignment = center
-  format = "<span color='#E73159' size='64pt'>%s</span>\n%b"
+  format = "<span color='#E73159' size='60pt'>%s</span>\n%b"

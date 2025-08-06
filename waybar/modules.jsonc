@@ -73,7 +73,7 @@
     // "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
     "format": "<span font='11'>󰂯 </span>{status}",
     "format-disabled": "<span font='11'>󰂲 </span>Disabled", // an empty format will hide the module
-    "format-connected": "<span font='12'>󰂱 </span><span font='11' color='#97ff00'>󰪥 </span>",
+    "format-connected": "<span font='11'>󰂱 </span><span font='10' color='#97ff00'>󰪥 </span>",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "Connected to:\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
@@ -82,9 +82,9 @@
   "pulseaudio": {
     "tooltip": false,
     "scroll-step": 5,
-    "format": "<span font='10'>{icon}</span> {volume}%",
-    "format-muted": "<span font='10'> </span> {volume}%",
-    "format-bluetooth": "<span font='10'>󰂰</span> {volume}%",
+    "format": "<span font='11'>{icon}</span> {volume}%",
+    "format-muted": "<span font='11'> </span> {volume}%",
+    "format-bluetooth": "<span font='11'>󰂰</span> {volume}%",
     "on-click": "~/.config/scripts/audio-mute.sh",
     "on-scroll-up": "~/.config/scripts/volume.sh 5%+",
     "on-scroll-down": "~/.config/scripts/volume.sh 5%-",
@@ -106,7 +106,7 @@
   "backlight": {
     "device": "intel_backlight",
     "tooltip": false,
-    "format": "<span font='10'>󰃠 </span>{}%",
+    "format": "<span font='11'>󰃠 </span>{}%",
     "on-scroll-up": "~/.config/scripts/brightness.sh +2%",
     "on-scroll-down": "~/.config/scripts/brightness.sh 2%-"
   },
@@ -117,9 +117,9 @@
       "warning": 30,
       "critical": 20
     },
-    "format": "{capacity}% <span font='13'>{icon}</span>",
-    "format-charging": "{capacity}% <span font='13'>{icon}󱐌</span>",
-    "format-plugged": "{capacity}% <span font='13'>{icon}󰚥</span>",
+    "format": "{capacity}% <span font='12'>{icon}</span>",
+    "format-charging": "{capacity}% <span font='12'>{icon}󱐌</span>",
+    "format-plugged": "{capacity}% <span font='12'>{icon}󰚥</span>",
     "format-alt": "{time} <span font='12'>{icon}</span>",
     "format-icons": [
       "󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"
@@ -151,7 +151,9 @@
     }
   },
   "hyprland/language": {
-    "format": "<span font='13'>󰌓 </span>{}",
+    "format": "<span font='12'>󰌓 </span>{}",
+    "min-length": 6,
+    "max-length": 20,
     "format-es": "Lat",
     "format-en": "En"
   },
@@ -159,11 +161,12 @@
     // "format": " {}",
     "format": " ",
     "max-length": 20,
+    "min-length": 3,
     "tooltip": true
   },
   "memory": {
     "interval": 20,
-    "format": "<span font='12'> </span>{used}GiB {percentage}%"
+    "format": "<span font='11'> </span>{used}GiB {percentage}%"
   },
   "custom/power": {
     "format": "⏼ ",

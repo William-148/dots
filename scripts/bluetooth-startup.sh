@@ -2,6 +2,8 @@
 
 # CONNECT BLUETOOTH DEVICES AUTOMATICALLY AT STARTUP
 
-sleep 2
-# Connect headset
-bluetoothctl connect 00:18:09:21:6F:97
+# CONNECT HEADSET ***********************************
+Headset_MAC="00:18:09:21:6F:97"
+bluetoothctl disconnect $Headset_MAC
+sleep 1
+bluetoothctl connect $Headset_MAC

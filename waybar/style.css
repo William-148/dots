@@ -60,12 +60,8 @@
 #custom-arrow2.right,
 #custom-separator.left,
 #custom-separator.right {
-   /* Determines the size of the waybar.
-    * Best values where the borders don't show distortions:
-    * - Hack Nerd Font: 29, 33, 42 px
-    * - Hurmit Nerd Font: 26, 31 px
-    */
-    font-size: 21px; 
+   /* Determines the size of the waybar. */
+    font-size: 19px;
     color: @bg1;
 }
 
@@ -89,8 +85,8 @@
 #pulseaudio-slider,
 #backlight
 {
-    padding: 0 5px 0 5px;
-    font-size: 13px;
+    padding: 0 3px 0 3px;
+    font-size: 12px;
     /* font-weight: bold; */
     /* text-shadow: 0px 1px 1px rgb(51, 255, 0); */
     /* text-shadow: 1px 2px 2px #ef2125; */
@@ -112,8 +108,8 @@
 #language,
 #submap
 {
-    padding: 0 5px 0 5px;
-    font-size: 13px;
+    padding: 0 3px 0 3px;
+    font-size: 12px;
     /* font-weight: bold; */
     /*text-shadow: 1px 1px 1px rgb(0, 255, 242);*/
     /* text-shadow: 1px 2px 2px #ef2125; */
@@ -132,12 +128,20 @@
 }
 
 #workspaces button {
-    transition: none;
     color: #B5E8E6;
     padding-left: 6px;
     background-color: transparent;
-    margin-right: 5px;
-    margin-left: 5px;
+    margin: 0 3px 0 3px;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: none;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 #workspaces button.persistent {
@@ -145,10 +149,6 @@
     color: #7ac5f7;
     padding-right: 8px;
     background-color: transparent;
-}
-
-#workspaces button.persistent label{
-    font-size: 15px;
 }
 
 #workspaces button.empty {
@@ -159,24 +159,24 @@
     padding-left: 8px;
 }
 
-#workspaces button.empty label{
-    font-size: 12px;
-}
-
 #workspaces button.active {
-    transition: none;
+    /* transition: none; */
     color: #ffd000;
     background-color: transparent;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button.persistent label{
+    font-size: 14px;
 }
 
 #workspaces button.active label{
-    font-size: 15px;
+    font-size: 14px;
 }
 
-#workspaces button:hover {
-    box-shadow: inherit;
-    text-shadow: inherit;
-    background: none;
+#workspaces button.empty label{
+    font-size: 11px;
 }
 
 
@@ -199,11 +199,21 @@
  * Custom Launcher
  * --------------------------------------------------------------------------- */
 #custom-launcher {
-    font-size: 21px;
+    font-size: 19px;
     padding-left: 10px;
     margin-right: -5px;
     /* color: @logo; */
     /* background: transparent; */
+}
+
+
+/* ---------------------------------------------------------------------------
+ * Custom Power
+ * --------------------------------------------------------------------------- */
+#custom-power {
+    padding: 0 5px 0 10px;
+    font-size: 18px;
+    color: #ff0066;
 }
 
 
@@ -221,31 +231,20 @@
 #pulseaudio-slider trough {
     min-height: 5px;
     min-width: 65px;
-    border-radius: 3px;
     background-color: #ff6083;
 }
 #pulseaudio-slider highlight {
-    border-radius: 3px 0 0 3px;
     background-color: black;
 }
 
 /* ---------------------------------------------------------------------------
- * Custom Power
+ * Submap
  * --------------------------------------------------------------------------- */
 #submap {
-  font-size: 16px;
+  font-size: 15px;
   color: #ff9700;
 }
 
-/* ---------------------------------------------------------------------------
- * Custom Power
- * --------------------------------------------------------------------------- */
-#custom-power {
-    padding: 0 5px 0 10px;
-    font-weight: bold;
-    font-size: 16px;
-    color: #ff0066;
-}
 
 /* ---------------------------------------------------------------------------
  * Custom Updates
@@ -284,15 +283,3 @@
     }
 }
 
-/* ---------------------------------------------------------------------------
- * Tray
- * --------------------------------------------------------------------------- */
-#tray {
-    margin-left: 8px;
-    padding-left: 10px;
-    padding-right: 10px;
-    border-radius: 10px;
-    transition: none;
-    color: #B5E8E0;
-    background: #161320;
-}
