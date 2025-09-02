@@ -15,6 +15,9 @@
     "on-click": "activate",
     "all-outputs": true,
     "active-only": false,
+    // "show-special": true,
+    // "special-visible-only": true,
+    // "sort-by": "id",
     "persistent-workspaces": {
       "1": [],
       "2": [],
@@ -26,8 +29,9 @@
     "format": "{icon}",
     "format-icons": {
       "active": "󰮯",
-      "empty": "●",
-      "persistent": "󰊠"
+      "empty": "",
+      "persistent": "󰊠",
+      "special": "󰯉 "
     }
   },
   // Taskbar

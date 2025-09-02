@@ -129,9 +129,8 @@
 
 #workspaces button {
     color: #B5E8E6;
-    padding-left: 6px;
     background-color: transparent;
-    margin: 0 3px 0 3px;
+    padding: 0 10px 0 10px;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
@@ -140,43 +139,43 @@
     box-shadow: inherit;
     text-shadow: inherit;
     background: none;
-    animation: gradient_f 20s ease-in infinite;
-    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+    opacity: 0.7;
 }
 
 #workspaces button.persistent {
     transition: none;
-    color: #7ac5f7;
-    padding-right: 8px;
+    color: #00E2EA;
     background-color: transparent;
 }
 
 #workspaces button.empty {
-    color: #acacac;
+    color: #CAD3F5;
     transition: none;
     background-color: transparent;
-    padding-right: 6px;
-    padding-left: 8px;
 }
 
 #workspaces button.active {
     /* transition: none; */
-    color: #ffd000;
+    color: #fcf00a;
     background-color: transparent;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
-#workspaces button.persistent label{
-    font-size: 14px;
+#workspaces button.special {
+    color: #97FF00;
+    background-color: transparent;
+    padding: 0 6px 0 10px;
 }
 
-#workspaces button.active label{
-    font-size: 14px;
-}
-
+#workspaces button.persistent label,
+#workspaces button.active label,
 #workspaces button.empty label{
-    font-size: 11px;
+    font-size: 14px;
+}
+
+#workspaces button.special label{
+    font-size: 16px;
 }
 
 
