@@ -1,0 +1,41 @@
+// ██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ 
+// ██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+// ██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝
+// ██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+// ╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
+//  ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+// by Willi (2025)
+// ---------------------------------------------------------------------------
+//
+{
+  "layer": "top",
+  "margin-right": 10,
+  "margin-left": 10,
+  "margin-top": 0,
+  // IMPORTING MODULES
+  "include": [
+    "~/.config/waybar/modules.jsonc"
+  ],
+  // MODULES LAYOUT
+  "modules-left": [
+    "group/launcher-container",
+    "custom/icon-arrow",
+    // ------------
+    "custom/border#left",
+    "memory",
+    "group/bevel-double#right",
+    // ------------
+    "custom/border#left",
+    "network",
+    "group/bevel-double#right"
+  ],
+  "modules-center": [
+    "group/workspaces-container"
+  ],
+  "modules-right": [
+    "group/audio",
+    "group/status-panel",
+    "clock",
+    "custom/power"
+  ]
+}

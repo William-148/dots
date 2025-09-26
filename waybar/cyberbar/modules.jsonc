@@ -1,0 +1,256 @@
+// ███╗   ███╗ ██████╗ ██████╗ ██╗   ██╗██╗     ███████╗███████╗
+// ████╗ ████║██╔═══██╗██╔══██╗██║   ██║██║     ██╔════╝██╔════╝
+// ██╔████╔██║██║   ██║██║  ██║██║   ██║██║     █████╗  ███████╗
+// ██║╚██╔╝██║██║   ██║██║  ██║██║   ██║██║     ██╔══╝  ╚════██║
+// ██║ ╚═╝ ██║╚██████╔╝██████╔╝╚██████╔╝███████╗███████╗███████║
+// ╚═╝     ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚══════╝
+// by Willi (2025)
+// ---------------------------------------------------------------------------
+//
+{
+  // LAUNCHER ****************************************************************
+  "custom/launcher": {
+    "format": "",
+    "tooltip-format": "<span font='18' color='#F14D41'></span>",
+    "on-click": "rofi -show drun -run-command 'uwsm app -- {cmd}'",
+    "on-click-right": "killall rofi"
+  },
+  "group/launcher-container": {
+    "orientation": "horizontal",
+		"modules": [
+      "group/c-bracket#left",
+      "custom/launcher",
+      "group/c-bracket#right"
+		]
+	},
+  // Memory ******************************************************************
+  "memory": {
+    "interval": 20,
+    "format": "<span font='13' color='#5EF6FF' >󰘚</span>  <span font='Orbitron Medium 9' color='#5EF6FF'>MEM</span>  {used}GiB  {percentage}%",
+    "tooltip-format": "  MEMORY\t\t󰁱 󰁱\nUsed\t\t{used}GiB\nAvailable\t\t{avail}GiB\nTotal\t\t{total}GiB"
+  },
+  // Network *****************************************************************
+  "network": {
+    "tooltip": true,
+    "interval": 15,
+    "format-wifi": "<span font='12' color='#5EF6FF'> </span><span font='Orbitron Medium 9' color='#5EF6FF'>NET</span>  {bandwidthDownBits}  <span font='13' color='#ff0066'>󰸴</span> ",
+    "format-ethernet": "",
+    // "format-disconnected": "󱛅  Disconnected",
+    "format-disconnected": "<span font='12' color='#5EF6FF'> </span><span font='Orbitron Medium 9' color='#5EF6FF'>NET</span>  Disconnected",
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗 ",
+    "tooltip-format-wifi": "<span font='12' color='#F14D41'>󱫋 <b>NETWORK</b>\t\t  󰐲</span>\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n <span font='10' color='#F14D41'></span>\t{essid} [{signalStrength}%]\n<span font='12' color='#F14D41'><b>IP<small>v4</small></b></span>\t{ipaddr}\n <span font='13' color='#F14D41'>󰸸</span>\t{bandwidthUpBits}\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n<span color='#592023'>󰁱󰁱 󰁱 󰁱 󰁱󰁱󰁱</span>",
+    "tooltip-format-ethernet": "{ifname}  ",
+    "tooltip-format-disconnected": "Disconnected"
+  },
+  // Workspaces **************************************************************
+  "group/workspaces-container": {
+    "orientation": "horizontal",
+		"modules": [
+      "group/c-bracket#left",
+      "hyprland/workspaces",
+      "group/c-bracket#right"
+		]
+	},
+  "hyprland/workspaces": {
+    // "disable-scroll": true,
+    "on-click": "activate",
+    "all-outputs": true,
+    "active-only": false,
+    "show-special": true,
+    "sort-by": "id",
+    "persistent-workspaces": {
+      "special:magic": [],
+      "*": 6
+    },
+    "format": " {icon} {windows}",
+    "format-icons": {
+      // "default": "󰯉 ",
+      "special": ""
+    },
+    "workspace-taskbar": {
+        "enable": true,
+        "update-active-window": false,
+        "format": "{icon}",
+        "icon-size": 16,
+        "icon-theme": "Vivid-Glassy-Dark-Icons",
+        "orientation": "horizontal"
+    }
+  },
+  // Audio ********************************************************************
+  "group/audio": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio",
+      "pulseaudio/slider"
+    ]
+  },
+  "pulseaudio": {
+    "tooltip": true,
+    "scroll-step": 5,
+    "format": "<span font='11' color='#74E1D2'>{icon}</span>  {volume}%",
+    "format-muted": "<span font='11' color='#74E1D2'>{icon}</span> {volume}%",
+    "format-bluetooth": "<span font='11' color='#74E1D2'>{icon}</span>  <span font='10' rise='4000' color='#FF0066'>󰂯</span> {volume}%",
+    "format-bluetooth-muted": "<span font='11' color='#74E1D2'>{icon}</span>  <span font='10' rise='4000' color='#FF0066'>󰂯</span> {volume}%",
+    "on-click": "~/.config/scripts/audio-mute.sh",
+    "on-scroll-up": "~/.config/scripts/volume.sh 5%+",
+    "on-scroll-down": "~/.config/scripts/volume.sh 5%-",
+    "tooltip-format": "<span font='12' color='#F14D41'>󰗅 <b>AUDIO</b>\t\t\t 󰁲 </span>\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n <span font='12' color='#F14D41'></span>\t{format_source}\n <span font='15' color='#F14D41'>󱡬</span>\t{desc}\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n<span color='#592023'>󰁱󰁱󰁱 󰁱󰁱󰁱󰁱</span>",
+    "format-icons": {
+      "default": ["",""," "],
+      "default-muted": "",
+      "headset": "",
+      "headset-muted": "󰟎"
+    }
+  },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+  },
+  // STATUS PANEL *************************************************************
+  "group/status-panel": {
+    "orientation": "horizontal",
+    "modules": [
+      "group/c-bracket#left",
+      "hyprland/submap",
+      "hyprland/language",
+      "bluetooth",
+      "backlight",
+      "battery",
+      "group/c-bracket#right"
+    ]
+  },
+  "hyprland/submap": {
+    // "format": " ",
+    "format": " ",
+    // "format": "󰨡 ",
+    "max-length": 20,
+    "min-length": 3,
+    "tooltip": true
+  },
+  "hyprland/language": {
+    "format": "<span font='13' color='#5EF6FF'>󰌓</span> {}",
+    "max-length": 20,
+    "max-height": 10,
+    "format-es": "󰰌󰯫󰰤",
+    // "format-es": "lat",
+    "format-en": "󰰧󰰡"
+    // "format-en": "us"
+  },
+  // BLUETOOTH
+  "bluetooth": {
+    "format": "<span font='11' color='#5EF6FF'>󰂯</span> {status}",
+    "format-disabled": "<span font='11' color='#5EF6FF'>󰂲</span> Disabled", // an empty format will hide the module
+    "format-connected": "<span font='11' color='#5EF6FF'>󰂱</span> <span font='10' color='#97FF00'>󰪥</span> ",
+    "tooltip-format": " BLUETOOTH\t\t󰁱󰁱󰁱\n{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": " BLUETOOTH [Connected]\t󰁱󰁱󰁱\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+  // BRIGHTNESS
+  "backlight": {
+    "device": "intel_backlight",
+    "tooltip": false,
+    "format": "<span font='13' line_height='0.9' color='#5EF6FF'>󰖙</span>  {}%",
+    "on-scroll-up": "~/.config/scripts/brightness.sh +2%",
+    "on-scroll-down": "~/.config/scripts/brightness.sh 2%-"
+  },
+  // BATTERY
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "<span font='12' color='#FC4A56'>{icon}</span>",
+    "format-charging": "<span font='12' color='#5EF6FF'>{icon}</span><span font='12'>󱐌</span>",
+    "format-plugged": "<span font='12' color='#5EF6FF'>{icon}</span><span font='12'>󰚥</span>",
+    "format-critical": " <span font='12'>{icon}</span><span font='9' rise='1000' ></span>  ",
+    "format-alt": "<span color='#5EF6FF' font='12'>{icon}</span> {time}",
+    "tooltip": true,
+    "tooltip-format": "<span font='12' color='#F14D41'>󰄌 <b>BATTERY</b>\t\t  </span>\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n<span font='12' color='#F14D41'><b>LEVEL</b></span>\t{capacity}%\n<span font='12' color='#F14D41'> 󰔟</span>\t\t{timeTo}\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n<span color='#592023'>󰁱󰁱 󰁱󰁱 󰁱󰁱󰁱</span>",
+    "format-icons": [
+      "󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"
+    ]
+  },
+  // CLOCK ********************************************************************
+  "clock": {
+    "tooltip": true,
+    "interval": 60,
+    "format": "{:%a %d <span font='15' rise='-3000'>%H:%M</span>}",
+    "tooltip-format": "<span font='Hurmit Nerd Font Mono' size='10pt'>{calendar}</span>",
+    "calendar": {
+      "mode": "month",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#EC0A52' text_transform='uppercase'><b>{}</b></span>",
+        "days": "<span color='#5EF6FF'>{}</span>",
+        "weeks": "<span color='#93FF00'><b>w{}</b></span>",
+        "weekdays": "<span color='#F14D41'><b>{}</b></span>",
+        "today": "<span color='#EC0A52'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
+  // POWER ********************************************************************
+  "custom/power": {
+    "format": "⏼",
+    "on-click": "wlogout -b 5"
+  },
+  // CUSTOM ELEMENTS **********************************************************
+  "custom/icon-arrow": {
+    "format": "<span line_height='0.5'>󰶻</span>",
+    "tooltip": false
+  },
+  "custom/border#left": {
+    "format": "<b><span line_height='0.8'>0\n2</span></b>",
+    "tooltip": false
+  },
+  "custom/corner#top": {
+    "format": " ",
+    "tooltip": false
+  },
+  "custom/corner#bottom": {
+    "format": " ",
+    "tooltip": false
+  },
+  // CUSTOM ELEMENTS GROUPS ***************************************************
+  /* BEVELED CORNER  🭓 and 🭞 */
+  "group/bevel#left": {
+    "modules": [
+      "custom/corner#top",
+      "custom/corner#bottom"
+    ]
+  },
+  "group/bevel#right": {
+    "modules": [
+      "custom/corner#top",
+      "custom/corner#bottom"
+    ]
+  },
+  /* DOUBLE BEVELED CORNER '𜸬' */
+  "group/bevel-double#right": {
+    "modules": [
+      "custom/corner#top",
+      "custom/corner#bottom"
+    ]
+  },
+  /* CORNER BRACKETS 󰊓 */
+  "group/c-bracket#left": {
+    "modules": [
+      "custom/corner#top",
+      "custom/corner#bottom"
+    ]
+  },
+  "group/c-bracket#right": {
+    "modules": [
+      "custom/corner#top",
+      "custom/corner#bottom"
+    ]
+  }
+}

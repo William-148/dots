@@ -1,0 +1,513 @@
+/*
+ *  ██████╗██╗   ██╗██████╗ ███████╗██████╗ ██╗    ██╗ █████╗ ██╗   ██╗██████╗  █████╗ ██████╗ 
+ * ██╔════╝╚██╗ ██╔╝██╔══██╗██╔════╝██╔══██╗██║    ██║██╔══██╗╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+ * ██║      ╚████╔╝ ██████╔╝█████╗  ██████╔╝██║ █╗ ██║███████║ ╚████╔╝ ██████╔╝███████║██████╔╝
+ * ██║       ╚██╔╝  ██╔══██╗██╔══╝  ██╔══██╗██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+ * ╚██████╗   ██║   ██████╔╝███████╗██║  ██║╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
+ *  ╚═════╝   ╚═╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+ * By Willi (2025)
+ */
+
+/* ---------------------------------------------------------------------------
+ * COLORS
+ * --------------------------------------------------------------------------- */
+@define-color bg-default rgba(14, 14, 23, 0.85); /* #0E0E17 */
+@define-color fg-default #F14D41; /* rgba(241, 77, 65, 1) */
+@define-color border-default #FF3B45; /* rgba(255, 59, 69, 1) */
+@define-color border-darker #592023;
+@define-color ui-cyan #5EF6FF; /* rgba(94, 246, 255, 1) */
+@define-color ui-yellow #FCF00A; /* rgba(252, 240, 10, 1) */
+@define-color ui-magenta #EC0A52; /* rgba(236, 10, 82, 1) */
+
+@define-color warning-bg rgba(102, 0, 204, 0.8); /* #0A00CC */
+@define-color warning-fg #FF45FF;
+
+@define-color battery-plugged #99d117;
+
+/* ---------------------------------------------------------------------------
+ * GENERAL
+ * Waybar height is influenced by the visual segments "CORNER BEVEL", "CORNER BEVEL DOUBLE",
+ * and "CORNER BRACKETS". These elements apply padding, borders, or transformations that alter
+ * the effective height of the bar. When adjusting overall height, ensure these segments are
+ * accounted for to maintain visual alignment and consistency.
+ * The current configured HEIGHT of Waybar is 30px, and all related calculations have been made
+ * using this value as the baseline.
+ * --------------------------------------------------------------------------- */
+* {
+    border: none;
+	  border-radius: 0;
+	  min-height: 0;
+	  margin: 0;
+	  padding: 0;
+	  box-shadow: none;
+	  -gtk-icon-shadow: none;
+}
+
+#waybar {
+    font-family: "Rajdhani SemiBold", "Hurmit Nerd Font", sans-serif;
+    /*font-family: "Hack Nerd Font";*/
+    background-color: transparent;
+}
+
+tooltip {
+    /* font-family: "Rajdhani Medium", "Hurmit Nerd Font", sans-serif; */
+    font-family: "Rajdhani Medium", "Hurmit Nerd Font", sans-serif; background-color: @bg-default;
+    font-size: 1.1rem;
+    border: 1px solid @border-default;
+}
+
+tooltip box {
+  /* This is to remove an existing margin/padding from some
+   * undocumented element. This margin/padding exist between
+   * tooltip and box, and this is the only way to remove it.
+   */
+    margin: -0.36em;
+    border-left: 1.2em solid rgba(255, 59, 69, 0.15);
+    padding-left: 1px;
+
+}
+
+tooltip label {
+    border-left: 1px solid @border-darker;
+    padding: 0.4em 0.8em;
+    color: @ui-cyan;
+}
+
+#network  label {
+  padding-bottom: 8em;
+}
+
+/* ---------------------------------------------------------------------------
+ * ARROW/TRIANGLES SHAPES
+ * --------------------------------------------------------------------------- */
+#custom-icon-arrow {
+    font-size: 1.5rem;
+    margin: 0.31em 0.4em;
+    padding: 0 0.3em 0 0.15em;
+    color: @ui-magenta;
+    text-shadow: 0 0 2px #FF3CAC;
+
+    border: 1px solid @ui-magenta;
+    background-color: @bg-default;
+    background-image: repeating-linear-gradient(
+        to bottom,
+        rgba(236, 10, 82, 0.6),
+        rgba(236, 10, 82, 0.6) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+}
+
+#custom-border.left {
+    font-family: "Orbitron";
+    font-size: 0.4rem;
+    color: black;
+    padding: 0 1px;
+    padding-bottom: 12px;
+    margin-right: 1px;
+    /* background-color: #F0B537; */
+    /* background-color: #FB932E; */
+    background-color: @border-default;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * CORNER BEVEL
+ * Calculate with waybar height, in this case is 30px.
+ * Total height = border-top-size + corner-top-size + corner-bottom-size = 30px
+ * --------------------------------------------------------------------------- */
+/* Commons */
+#bevel {
+    min-width: 10px; /* width of the bevel */
+}
+#bevel #custom-corner {
+    font-size: 0;
+}
+#bevel #custom-corner.top {
+    border: 1px solid @border-darker; /* border-top-size */
+    padding-top: 19px; /* corner-top-size */
+    background-color: @bg-default;
+}
+#bevel #custom-corner.bottom {
+    padding-top: 10px; /* corner-bottom-size */
+}
+
+/* Bevel Left */
+#bevel.left {
+  margin-left: 0.4em;
+}
+#bevel.left #custom-corner.top {
+    border-right: 0;
+    border-bottom: 0;
+}
+#bevel.left #custom-corner.bottom {
+    background-image: linear-gradient(
+        45deg,
+        transparent 47%,
+        @border-darker 47%,
+        @border-darker 53%,
+        @bg-default 53%
+    );
+}
+
+/* Bevel Right */
+#bevel.right {
+  margin-right: 0.4em;
+}
+#bevel.right #custom-corner.top {
+    border-left: 0;
+    border-bottom: 0;
+}
+#bevel.right #custom-corner.bottom {
+    background-image: linear-gradient(
+        -45deg,
+        transparent 47%,
+        @border-darker 47%,
+        @border-darker 53%,
+        @bg-default 53%
+    );
+}
+
+
+/* ---------------------------------------------------------------------------
+ * CORNER BEVEL DOUBLE '𜸬'
+ * Calculate with waybar height, in this case is 30px.
+ * Total height = border-top-size + corner-top-size + corner-bottom-size = 30px
+ * --------------------------------------------------------------------------- */
+/* Commons */
+#bevel-double.right {
+    min-width: 13px; /* width of the bevel */
+}
+#bevel-double #custom-corner {
+  font-size: 0;
+}
+#bevel-double #custom-corner.top {
+    border: 1px solid @border-darker; /* border-top-size */
+    padding-top: 16px; /* corner-top-size */
+    background-color: @bg-default;
+}
+#bevel-double.right #custom-corner.bottom {
+    padding-top: 13px; /* corner-bottom-size */
+}
+/* Right */
+#bevel-double.right {
+    margin-right: 0.6em;
+}
+#bevel-double.right #custom-corner.top {
+    border-left: 0;
+    border-bottom: 0;
+}
+#bevel-double.right #custom-corner.bottom {
+    background-image: linear-gradient(
+        135deg,
+        @bg-default 47%,
+        @border-darker 47%,
+        @border-darker 53%,
+        transparent 53%
+      ),
+      linear-gradient(
+        135deg,
+        transparent 42%,
+        rgba(94, 246, 255, 0.8) 42%,
+        rgba(94, 246, 255, 0.8) 58%,
+        transparent 58%
+      )
+    ;
+    background-position:
+      top left, /* First line */
+      3px 3px  /* Displaced line */
+    ;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * CORNER BRACKETS 󰊓
+ * Calculate with waybar height, in this case is 30px.
+ * Total height = 2*border-size + 2*corner-height + spacing = 30px
+ * --------------------------------------------------------------------------- */
+/* Commons */
+#c-bracket #custom-corner {
+    font-size: 0;
+    border: 2px solid rgba(255,255,255,0.3); /* border-size */
+    padding-top: 4px; /* corner-height */
+    padding-left: 4px; /* Cornel horizontal length (width) */
+
+}
+#c-bracket #custom-corner.top {
+    /* Separation between top and bottom corner*/
+    margin-bottom: 18px; /* spacing */
+}
+/* Left */
+#c-bracket.left #custom-corner.top {
+    border-right: 0; border-bottom: 0;
+}
+#c-bracket.left #custom-corner.bottom {
+    border-top: 0; border-right: 0;
+}
+/* Right */
+#c-bracket.right #custom-corner.top {
+    border-bottom: 0; border-left: 0;
+}
+#c-bracket.right #custom-corner.bottom {
+    border-top: 0; border-left: 0;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * CUSTOM LAUNCHER
+ * --------------------------------------------------------------------------- */
+#launcher-container {
+    background: linear-gradient(to right, #fca311, @ui-yellow);
+    transition: background 0.6s ease-in-out;
+}
+
+#launcher-container:hover {
+    background: linear-gradient(to right, @ui-yellow, #fca311);
+}
+
+#launcher-container #custom-corner {
+    border-color: #cc6600;
+}
+
+#custom-launcher {
+    padding: 0 0.5em 0 0.25em;
+    font-size: 1.4rem;
+    color: black;
+    text-shadow:
+        2px -1px #FF7D7D,
+        -1px -2px #F20A67,
+        -1px 2px #FA3ADE
+    ;
+    transition: text-shadow 0.4s ease-in-out;
+}
+#custom-launcher:hover {
+  text-shadow: unset;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * LEFT INDICATORS
+ * --------------------------------------------------------------------------- */
+#network,
+#memory {
+    color: @fg-default;
+    border: 1px solid @border-darker;
+    border-right: 0;
+    padding: 0 0.2em 0 0.3em;
+    font-size: 0.97rem;
+    background-color: @bg-default;
+    /* background: linear-gradient(to right, rgba(63, 27, 31, 0.8), @bg-default); */
+}
+
+
+/* ---------------------------------------------------------------------------
+ * WORKSPACES
+ * --------------------------------------------------------------------------- */
+#workspaces-container {
+  background:
+      /* linear-gradient(135deg, rgba(0,255,255,0.12), rgba(180,0,255,0.12)); */
+      /* radial-gradient(circle at top left, rgba(0,255,200,0.15), rgba(255,255,255,0.05)) */
+      /* radial-gradient(circle at top right, rgba(0,255,255,0.15), rgba(180,0,255,0.07)) */
+      radial-gradient(circle at bottom left, rgba(180,0,255,0.07), rgba(255,0,128,0.22))
+  ;
+}
+
+#workspaces {
+    padding: 0 0.3em 0 0.3em;
+    font-size: 0.85rem;
+}
+
+#workspaces button {
+    font-family: 'Orbitron SemiBold';
+    background-color: transparent;
+    font-size: 0.85rem;
+    color: @ui-cyan;
+    padding: 0 0.5em 0 0.5em;
+    text-shadow: 0 0 2px rgba(0, 80, 90, 0.8);
+}
+
+#workspaces button:hover {
+    background: none;
+    text-shadow:3px 3px rgba(246, 0, 153,0.6),
+        -5px -3px rgba(15, 210, 255,0.6),
+        -2px 2px rgba(255, 210, 0, 0.7)
+    ;
+}
+
+#workspaces button.persistent {
+    transition: none;
+}
+
+#workspaces button.empty {
+    transition: none;
+}
+
+#workspaces button.active {
+    border: 1px solid #F14D41;
+    border-width: 0 1px 0 5px;
+    text-shadow: none;
+    transition: background 0.5s cubic-bezier(.36,1.24,.65,-0.84),
+            color 0.5s cubic-bezier(.36,1.24,.65,-0.84),
+            border 0.5s cubic-bezier(.36,1.24,.65,-0.84);
+
+    background-size: 4px 4px;
+    background-image: repeating-linear-gradient(45deg, 
+        #8A2E2A 0,
+        #8A2E2A 1.4px,
+        @bg-default 0,
+        @bg-default 50%
+    );
+}
+
+#workspaces button.special.active {
+    border: 1px solid @ui-cyan;
+    border-width: 0 1px 0 5px;
+    color: black;
+    background: @ui-magenta;
+    margin-right: 0.3em;
+}
+
+#workspaces button.special {
+    color: @ui-magenta;
+    text-shadow: 0 0 3px @ui-magenta, 0 0 3px #FF5C8A;
+
+
+    font-size: 1.1rem;
+    background-color: transparent;
+    padding: 0 0.4em 0 0.3em; /* To center nerdfont icon */
+    /* border: 1px solid green; */
+}
+
+/* #workspaces button.persistent label, */
+/* #workspaces button.active label, */
+/* #workspaces button.empty label{ */
+/*     font-size: 14px; */
+/* } */
+/**/
+/* #workspaces button.special label{ */
+/*     font-size: 16px; */
+/* } */
+
+
+/* ---------------------------------------------------------------------------
+ * AUDIO
+ * --------------------------------------------------------------------------- */
+#audio {
+    margin: 0 0.5em;
+    padding: 0;
+}
+
+#pulseaudio {
+    color: @fg-default;
+    font-size: 1.04rem;
+    text-shadow: 1px 1px 2px #000;
+}
+
+#pulseaudio-slider {
+    padding: 0 0.4em;
+}
+
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+}
+#pulseaudio-slider trough {
+    min-width: 70px;
+    background: rgba(14, 14, 23, 0.4);
+    padding: 4px 0;
+    border: 1px solid @border-darker;
+    border-left: 0;
+    border-right: 0;
+}
+#pulseaudio-slider highlight {
+  min-height: 3px;
+  box-shadow: 0px 0px 3px #ff6600;
+  background-color: #F72748;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * STATUS PANEL
+ * --------------------------------------------------------------------------- */
+#status-panel {
+    margin: 0 0.5em;
+    color: @fg-default;
+    background-color: @bg-default;
+    background-image: repeating-linear-gradient(135deg,
+        rgba(255, 59, 69, 0.1), rgba(255, 59, 69, 0.1) 12px,
+        transparent 12px, transparent 17px
+    );
+    box-shadow: inset 0 0 10px rgba(236, 10, 82, 0.6);
+}
+
+#status-panel #custom-corner {
+    border-color: @ui-magenta;
+}
+
+#language,
+#submap,
+#bluetooth,
+#backlight,
+#battery {
+    padding: 0 0.2em 0 0.2em;
+    margin: 0 0.25em 0 0.25em;
+}
+
+#language {
+    font-size: 1.1rem;
+}
+
+#submap {
+  color: @ui-cyan;
+}
+
+/* ---------------------------
+ * BATTERY
+ * --------------------------- */
+#battery.charging,
+#battery.plugged {
+    color: @battery-plugged;
+}
+
+#battery.critical:not(.charging) {
+    border: 1px solid transparent;
+    animation-name: blink;
+    animation-duration: 0.7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes blink {
+    to {
+        border-color: @ui-magenta;
+        background: linear-gradient(135deg, rgba(255, 0, 51, 0.7), @warning-bg);
+        color: @warning-fg;
+    }
+}
+
+
+/* ---------------------------------------------------------------------------
+ * CLOCK
+ * --------------------------------------------------------------------------- */
+#clock {
+    margin: 0 0.5em;
+    font-size: 0.9rem;
+    color: @ui-yellow;
+    text-shadow:
+      0 0 10px #ff6600,
+      0 0 5px #ff3300,
+      0 0 5px #ff0000;
+}
+
+
+/* ---------------------------------------------------------------------------
+ * CUSTOM POWER
+ * --------------------------------------------------------------------------- */
+#custom-power {
+    margin-left: 0.2em;
+    padding: 0 0.6em 0 0.3em;
+    font-size: 1.2rem;
+    color: #ff0066;
+    text-shadow: 0 0 3px #000;
+}
