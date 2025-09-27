@@ -17,15 +17,16 @@
   horizontal_padding = 20
   separator_height = 4
   line_height = 0
-  corner_radius = 28
+  corner_radius = 0
   frame_width = 3
-  frame_color = "#75757544"
-  background = "#001C1C88"
-  foreground = "#AEC1D1"
-  font = "Rajdhani Medium 12"
+  frame_width_left = 1
+  frame_color = "#E82A2B"
+  background = "#001C1CE8"
+  foreground = "#E82A2B"
+  font = "Rajdhani Medium 13"
 
 # --- Notification Format ---
-  format = "<span color='#E7EDEC'><b>%s</b></span>\n%b"
+  format = "<span color='#E82A2B'><b>%s</b></span>\n%b"
 
 # --- Icons ---
   icon_position = left
@@ -62,26 +63,28 @@
 
 [urgency_critical]
   timeout = 0
-  background = "#1C000088"
-  frame_color = "#00CED1"
+  background = "#D30D11D0"
+  foreground = "#000"
+  format = "<b>%s</b>\n%b"
 
 [progress-bar]
   appname = "progress-bar"
   urgency = low
   timeout = 2
-  background = "#0F0F0F88"
-  foreground = "#F54B4C"
-  frame_color = "#E73159"
-  highlight = "#FFFF33"
+  background = "#0E0E17C3"
+  foreground = "#F14D41"
+  frame_color = "#CF0C45"
+  highlight = "#FCF00A"
   alignment = center
-  format = "<span color='#63F7F9' size='24pt'>%s</span><span font='Orbitron SemiBold 16'>%p</span>\n%b"
+  format = "<span color='#5EF6FF' size='24pt'>%s</span><span font='Orbitron SemiBold 16'>%p</span>\n%b"
 
 [icon-indicator]
   appname = "icon-indicator"
   urgency = low
   timeout = 1
-  background = "#0F0F0F88"
-  foreground = "#F54B4C"
-  frame_color = "#E73159"
+  background = "#F73332E9"
+  foreground = "black"
+  frame_color = "#9F1B1C"
   alignment = center
-  format = "<span color='#E73159' size='60pt'>%s</span>\n%b"
+  format = "<span color='black' size='60pt'>%s</span>\n%b"
+

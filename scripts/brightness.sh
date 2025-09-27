@@ -24,4 +24,4 @@ BRIGHT_LEVEL=$(awk "BEGIN { printf \"%d\", ($BRIGHTNESS / $MAX) * 100 }")
 notify-send \
   -a $NOTIFY_APP_NAME \
   -h string:x-canonical-private-synchronous:$NOTIFY_APP_NAME \
-  -h int:value:$BRIGHT_LEVEL "󰃠 "
+  -h int:value:$BRIGHT_LEVEL "󰖙 "
