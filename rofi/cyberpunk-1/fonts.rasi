@@ -1,0 +1,14 @@
+* {
+  font: "Rajdhani SemiBold 11";
+}
+prompt {
+  font: "ShureTechMono Nerd Font 14";
+}
+textbox-prompt-colon {
+  font: "Monospace 13";
+}
+entry {
+  font: "Rajdhani SemiBold 14"; 
+}
+
+

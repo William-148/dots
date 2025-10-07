@@ -1,0 +1,8 @@
+* {
+    bg: #0E0E1790;
+    fg: #F75049;
+    active: #5EF6FF;
+    idle: #FF3B45C0;
+    idle-alt: #F75049AF;
+    border-default: #FF3B45C0;
+}

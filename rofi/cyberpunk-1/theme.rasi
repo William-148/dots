@@ -1,0 +1,178 @@
+@import                          "colors.rasi"
+@import                          "fonts.rasi"
+
+configuration {
+  modi: "drun";
+  show-icons: true;
+  display-drun: " ";
+  drun-display-format: "{name}";
+  hover-select: false;
+}
+
+window {
+  transparency: "real";
+  location: center;
+  anchor: center;
+  fullscreen: false;
+  width: 750px;
+  x-offset: 0px;
+  y-offset: 0px;
+  enabled: true;
+  margin: 0px;
+  padding: 0px;
+  border: 0px solid;
+  border-color: transparent;
+  background-color: transparent;
+  cursor: "default";
+}
+
+mainbox {
+  enabled: true;
+  spacing: 20px;
+  margin: 0px;
+  padding: 40px;
+  border: 0px solid;
+  border-color: transparent;
+  border-radius: 0px;
+  background-color: transparent;
+  children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+  enabled: true;
+  spacing: 0.5em;
+  margin: 0 4.5em 0 0;
+  padding: 0.8em 0.8em 0.8em 1.6em;
+  border: 0px solid;
+  border-color: transparent;
+  border-radius: 0px;
+  background-color: transparent;
+  background-image: url("./assets/hud_input.svg", height);
+  text-color: @active;
+  children: [ "prompt", "textbox-prompt-colon", "entry" ];
+}
+
+prompt {
+  enabled: true;
+  background-color: transparent;
+  text-color: @fg;
+}
+
+textbox-prompt-colon {
+  enabled: true;
+  expand: false;
+  str: "❯";
+  background-color: transparent;
+  text-color: inherit;
+}
+
+entry {
+  enabled: true;
+  background-color: transparent;
+  text-color: inherit;
+  cursor: text;
+  placeholder: "Applications";
+  placeholder-color: @idle;
+}
+
+listview {
+  enabled: true;
+  columns: 4;
+  lines: 3;
+  cycle: true;
+  dynamic: true;
+  scrollbar: true;
+  layout: vertical;
+  reverse: false;
+  require-input: false;
+  fixed-height: true;
+  fixed-columns: true;
+  spacing: 1.26em;
+  margin: 0 0 0 1.73em;
+  padding: 1.6em 0 1.6em 1.6em;
+  border: 1px 1px 1px 4px solid;
+  border-color: @border-default;
+  border-radius: 0px;
+  background-color: @bg;
+  background-image: linear-gradient(#f750490D);
+  // background-image: linear-gradient(#5ef6ff0D);
+  // background-image: linear-gradient(to right, #f750491D, transparent);
+  cursor: "default";
+}
+
+scrollbar {
+  handle-width: 4px;
+  handle-color: @active;
+  border: 1px 0 1px 1px solid;
+  margin: 0 0 0 0.5em;
+  border-radius: 0px;
+  border-color: @border-default;
+  background-color: transparent;
+}
+
+element {
+  enabled: true;
+  expand: false;
+  spacing: 0px;
+  margin: 0px;
+  padding: 0.3em 0.25em 0.35em 1em;
+  border: 0px solid;
+  border-color: transparent;
+  border-radius: 0px;
+  background-color: transparent;
+  orientation: vertical;
+  cursor: pointer;
+  background-image: url("./assets/hud_idle.svg", width);
+  text-color: @idle-alt;
+  children: [ "element-text", "element-icon" ];
+}
+
+element normal.normal {
+  background-color: transparent;
+}
+
+element active {
+  border: 1px solid;
+  border-color: gray;
+}
+
+element selected.normal {
+  background-image: url("./assets/hud_active.svg", width);
+  text-color: @fg;
+}
+
+element-icon {
+  padding: 0.63em 0 0.65em 0;
+  horizontal-align: 0.4;
+  background-color: transparent;
+  border-color: transparent;
+  text-color: inherit;
+  size: 58px;
+  cursor: inherit;
+}
+
+element-text {
+  background-color: transparent;
+  text-color: inherit;
+  highlight: inherit;
+  cursor: inherit;
+  vertical-align: 0.5;
+  horizontal-align: 0;
+}
+
+error-message {
+  padding: 15px;
+  border: 2px solid;
+  border-color: @border-default;
+  border-radius: 10px;
+  background-color: black / 10%;
+  text-color: @fg;
+}
+
+textbox {
+  background-color: @bg;
+  text-color: @fg;
+  vertical-align: 0.5;
+  horizontal-align: 0.0;
+  highlight: none;
+}
