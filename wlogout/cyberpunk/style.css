@@ -1,0 +1,96 @@
+* {
+	background-image: none;
+	box-shadow: none;
+  font-family: "Rajdhani SemiBold";
+  font-size: 1.2rem;
+}
+
+@define-color fg-default #f14d41;
+@define-color fg-active #5ef6ff;
+@define-color fg-hover #00C7D1;
+
+window {
+    background-color: transparent;
+    background-image: linear-gradient(to bottom right
+        , rgba(76,27,33,0.7)
+        , rgba(6,13,18,0.8)
+        , black
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+button {
+    color: @fg-default;
+    outline-style: none;
+    border: none;
+    min-width: 150px;
+    min-height: 150px;
+    margin: 5em 1.15em;
+    background-image: url("./assets/hud_idle.png");
+    background-repeat: no-repeat;
+    background-position: center ;
+    background-size: contain;
+    box-shadow: none;
+    text-shadow: none;
+    transition: background-image 0.3s ease-in-out;
+}
+
+button:focus:hover,
+button:focus {
+    background-image: url("./assets/hud_active.png");
+    color: @fg-active;
+}
+
+button:hover {
+    background-image: url("./assets/hud_hover.png");
+    color: @fg-hover;
+
+}
+
+button label {
+    padding-bottom: 15rem;
+    background-repeat: no-repeat;
+    background-position: center 60%;
+    background-size: 68%;
+}
+
+button:focus label,
+button:hover label{
+    background-size: 83%;
+    transition: background-size 0.3s ease-in-out;
+}
+
+#lock label {
+    background-image: url("./assets/lock.png");
+}
+
+#logout label {
+    background-image: url("./assets/logout.png");
+}
+
+#suspend label {
+    background-image: url("./assets/suspend.png");
+}
+
+#suspend label,
+#logout label {
+    background-size: 75%;
+}
+
+#logout:focus label,
+#logout:hover label,
+#suspend:focus label,
+#suspend:hover label {
+    background-size: 90%;
+    transition: background-size 0.3s ease-in-out;
+}
+
+#reboot label {
+    background-image: url("./assets/reboot.png");
+}
+
+#shutdown label {
+    background-image: url("./assets/shutdown.png");
+}
+
