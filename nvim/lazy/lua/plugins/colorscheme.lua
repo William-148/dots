@@ -14,6 +14,7 @@ return {
           LineNr = { fg = "#818181" },
           FloatBorder = { bg = "#0a0e14" },
           FloatTitle = { bg = "#0a0e14" },
+          NonText = { fg = "#5C6370" },
         },
       })
     end,
