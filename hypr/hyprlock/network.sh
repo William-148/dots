@@ -5,7 +5,8 @@
 # show_ssid=false
 
 # Read the wifi-mode alias from hyprlock.conf
-show_ssid=$(grep -oP '^\$wifi-mode\s*=\s*\K\S+' ~/.config/hypr/hyprlock.conf)
+# show_ssid=$(grep -oP '^\$wifi-mode\s*=\s*\K\S+' ~/.config/hypr/hyprlock.conf)
+show_ssid=true
 
 # Check if the username was successfully extracted
 if [ -z "$show_ssid" ]; then
@@ -18,8 +19,8 @@ wifi_status=$(nmcli -t -f WIFI g)
 
 # Check if Wi-Fi is enabled
 if [ "$wifi_status" != "enabled" ]; then
-    echo "󰤮  Wi-Fi Off"
-    exit 0
+  echo "󰤮  Wi-Fi Off"
+  exit 0
 fi
 
 # Get active Wi-Fi connection details
@@ -27,8 +28,8 @@ wifi_info=$(nmcli -t -f ACTIVE,SSID,SIGNAL dev wifi | grep '^yes')
 
 # If no active connection, show "Disconnected"
 if [ -z "$wifi_info" ]; then
-    echo "󰤮  No Wi-Fi"
-    exit 0
+  echo "󰤮  No Wi-Fi"
+  exit 0
 fi
 
 # Extract SSID
@@ -51,9 +52,9 @@ wifi_icon=${wifi_icons[$icon_index]}
 
 # Output based on show_ssid variable
 if [ "$show_ssid" = true ]; then
-    # Show SSID
-    echo "$wifi_icon $ssid"
+  # Show SSID
+  echo "$wifi_icon $ssid"
 else
-    # Show "Connected"
-    echo "$wifi_icon Connected"
+  # Show "Connected"
+  echo "$wifi_icon Connected"
 fi

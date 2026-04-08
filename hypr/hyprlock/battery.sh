@@ -1,33 +1,29 @@
 #!/bin/bash
 
+BODY_FONT="Hurmit Nerd Font Mono 13"
+DIMMED_COLOR="#26635D"
+
 # Get the current battery percentage
 battery_percentage=$(cat /sys/class/power_supply/BAT0/capacity)
+# battery_percentage=15
 
 # Get the battery status (Charging or Discharging)
-battery_status=$(cat /sys/class/power_supply/BAT0/status)
+# battery_status=$(cat /sys/class/power_supply/BAT0/status)
 
-# Define the battery icons for each 10% segment
-battery_icons=("󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰁹")
+# Blocks
+total_blocks=15
+filled_blocks=$((battery_percentage * total_blocks / 100))
 
-# Define the charging icon
-charging_icon="󰂄"
-
-# Calculate the index for the icon array
-# Ensure the index is within bounds (0 to 9) for battery percentages 0 to 100
-icon_index=$((battery_percentage / 10))
-
-# If the battery is 100%, use the last icon (index 9)
-if [ "$battery_percentage" -eq 100 ]; then
-    icon_index=9
-fi
-
-# Get the corresponding icon
-battery_icon=${battery_icons[$icon_index]}
-
-# Check if the battery is charging
-if [ "$battery_status" = "Charging" ]; then
-    battery_icon="$charging_icon"
-fi
+# Build bar
+highlighted_bar=""
+dimmed_bar=""
+for ((i = 1; i <= total_blocks; i++)); do
+  if [ "$i" -le "$filled_blocks" ]; then
+    highlighted_bar+="▌"
+  else
+    dimmed_bar+="▌"
+  fi
+done
 
 # Output the battery percentage and icon
-echo "$battery_percentage% $battery_icon"
+echo "0$battery_percentage  <span font='$BODY_FONT' rise='8000'>$highlighted_bar<span color='$DIMMED_COLOR'>$dimmed_bar</span></span>"
