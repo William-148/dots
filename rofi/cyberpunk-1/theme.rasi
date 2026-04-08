@@ -47,7 +47,7 @@ inputbar {
   border-color: transparent;
   border-radius: 0px;
   background-color: transparent;
-  background-image: url("./assets/hud_input.svg", height);
+  background-image: url("assets/hud_input.svg", height);
   text-color: @active;
   children: [ "prompt", "textbox-prompt-colon", "entry" ];
 }
@@ -85,7 +85,7 @@ listview {
   layout: vertical;
   reverse: false;
   require-input: false;
-  fixed-height: true;
+  fixed-height: false;
   fixed-columns: true;
   spacing: 1.26em;
   margin: 0 0 0 1.73em;
@@ -122,7 +122,7 @@ element {
   background-color: transparent;
   orientation: vertical;
   cursor: pointer;
-  background-image: url("./assets/hud_idle.svg", width);
+  background-image: url("assets/hud_idle.svg", width);
   text-color: @idle-alt;
   children: [ "element-text", "element-icon" ];
 }
@@ -137,7 +137,7 @@ element active {
 }
 
 element selected.normal {
-  background-image: url("./assets/hud_active.svg", width);
+  background-image: url("assets/hud_active.svg", width);
   text-color: @fg;
 }
 
