@@ -24,6 +24,7 @@ button {
     color: @fg-default;
     outline-style: none;
     border: none;
+    border-radius: 0;
     min-width: 150px;
     min-height: 150px;
     margin: 5em 1.15em;
