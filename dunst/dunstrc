@@ -82,7 +82,7 @@
   appname = "icon-indicator"
   urgency = low
   timeout = 1
-  background = "#F73332E9"
+  background = "#F73332"
   foreground = "black"
   frame_color = "#9F1B1C"
   alignment = center
