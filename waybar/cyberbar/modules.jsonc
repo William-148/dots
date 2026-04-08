@@ -4,7 +4,7 @@
 // ██║╚██╔╝██║██║   ██║██║  ██║██║   ██║██║     ██╔══╝  ╚════██║
 // ██║ ╚═╝ ██║╚██████╔╝██████╔╝╚██████╔╝███████╗███████╗███████║
 // ╚═╝     ╚═╝ ╚═════╝ ╚═════╝  ╚═════╝ ╚══════╝╚══════╝╚══════╝
-// by Willi (2025)
+// by Willi (2026)
 // ---------------------------------------------------------------------------
 //
 {
@@ -12,27 +12,27 @@
   "custom/launcher": {
     "format": "",
     "tooltip-format": "<span font='18' color='#F14D41'></span>",
-    "on-click": "rofi -show drun -run-command 'uwsm app -- {cmd}'",
+    // "on-click": "rofi -show drun -run-command 'uwsm app -- {cmd}'",
     "on-click-right": "killall rofi"
   },
   "group/launcher-container": {
     "orientation": "horizontal",
-		"modules": [
+    "modules": [
       "group/c-bracket#left",
       "custom/launcher",
       "group/c-bracket#right"
-		]
-	},
+    ]
+  },
   // Memory ******************************************************************
   "memory": {
-    "interval": 20,
+    "interval": 8,
     "format": "<span font='13' color='#5EF6FF' >󰘚</span>  <span font='Orbitron Medium 9' color='#5EF6FF'>MEM</span>  {used}GiB  {percentage}%",
     "tooltip-format": "  MEMORY\t\t󰁱 󰁱\nUsed\t\t{used}GiB\nAvailable\t\t{avail}GiB\nTotal\t\t{total}GiB"
   },
   // Network *****************************************************************
   "network": {
     "tooltip": true,
-    "interval": 15,
+    "interval": 6,
     "format-wifi": "<span font='12' color='#5EF6FF'> </span><span font='Orbitron Medium 9' color='#5EF6FF'>NET</span>  {bandwidthDownBits}  <span font='13' color='#ff0066'>󰸴</span> ",
     "format-ethernet": "",
     // "format-disconnected": "󱛅  Disconnected",
@@ -45,16 +45,16 @@
   // Workspaces **************************************************************
   "group/workspaces-container": {
     "orientation": "horizontal",
-		"modules": [
+    "modules": [
       "group/c-bracket#left",
       "hyprland/workspaces",
       "group/c-bracket#right"
-		]
-	},
+    ]
+  },
   "hyprland/workspaces": {
     // "disable-scroll": true,
     "on-click": "activate",
-    "all-outputs": true,
+    "all-outputs": false,
     "active-only": false,
     "show-special": true,
     "sort-by": "id",
@@ -68,12 +68,12 @@
       "special": ""
     },
     "workspace-taskbar": {
-        "enable": true,
-        "update-active-window": false,
-        "format": "{icon}",
-        "icon-size": 16,
-        "icon-theme": "Vivid-Glassy-Dark-Icons",
-        "orientation": "horizontal"
+      "enable": true,
+      "update-active-window": false,
+      "format": "{icon}",
+      "icon-size": 16,
+      "icon-theme": "Vivid-Glassy-Dark-Icons",
+      "orientation": "horizontal"
     }
   },
   // Audio ********************************************************************
@@ -87,16 +87,20 @@
   "pulseaudio": {
     "tooltip": true,
     "scroll-step": 5,
-    "format": "<span font='11' color='#74E1D2'>{icon}</span>  {volume}%",
-    "format-muted": "<span font='11' color='#74E1D2'>{icon}</span> {volume}%",
-    "format-bluetooth": "<span font='11' color='#74E1D2'>{icon}</span>  <span font='10' rise='4000' color='#FF0066'>󰂯</span> {volume}%",
-    "format-bluetooth-muted": "<span font='11' color='#74E1D2'>{icon}</span>  <span font='10' rise='4000' color='#FF0066'>󰂯</span> {volume}%",
+    "format": "{volume}<span font='12' rise='3000'>%</span> <span font='11' color='#74E1D2' rise='4000'>{icon}</span> ",
+    "format-muted": "{volume}<span font='12' rise='3000'>%</span> <span font='11' color='#74E1D2' rise='4000'>{icon}</span> ",
+    "format-bluetooth": "{volume}<span font='12' rise='3000'>%</span> <span font='11' color='#74E1D2' rise='4000'>{icon}</span><span font='10' rise='4000' color='#FF0066'> 󰂯</span>",
+    "format-bluetooth-muted": "{volume}<span font='12' rise='3000'>%</span> <span font='11' color='#74E1D2' rise='4000'>{icon}</span><span font='10' rise='4000' color='#FF0066'> 󰂯</span>",
     "on-click": "~/.config/scripts/audio-mute.sh",
     "on-scroll-up": "~/.config/scripts/volume.sh 5%+",
     "on-scroll-down": "~/.config/scripts/volume.sh 5%-",
     "tooltip-format": "<span font='12' color='#F14D41'>󰗅 <b>AUDIO</b>\t\t\t 󰁲 </span>\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n <span font='12' color='#F14D41'></span>\t{format_source}\n <span font='15' color='#F14D41'>󱡬</span>\t{desc}\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n<span color='#592023'>󰁱󰁱󰁱 󰁱󰁱󰁱󰁱</span>",
     "format-icons": {
-      "default": ["",""," "],
+      "default": [
+        "",
+        "",
+        ""
+      ],
       "default-muted": "",
       "headset": "",
       "headset-muted": "󰟎"
@@ -159,24 +163,39 @@
     "states": {
       "good": 95,
       "warning": 30,
-      "critical": 20
+      "critical": 25
     },
-    "format": "<span font='12' color='#FC4A56'>{icon}</span>",
-    "format-charging": "<span font='12' color='#5EF6FF'>{icon}</span><span font='12'>󱐌</span>",
-    "format-plugged": "<span font='12' color='#5EF6FF'>{icon}</span><span font='12'>󰚥</span>",
-    "format-critical": " <span font='12'>{icon}</span><span font='9' rise='1000' ></span>  ",
-    "format-alt": "<span color='#5EF6FF' font='12'>{icon}</span> {time}",
+    "format": "<span font='12' color='#5EF6FF'>{icon}</span>  {capacity}%",
+    "format-charging": "<span font='12' color='#FB932E'>󱐌</span> <span font='12' color='#5EF6FF'>{icon}</span>  {capacity}%",
+    "format-critical": "<span font='9' rise='1000'></span>  <span font='12' color='#5EF6FF'>{icon}</span>  {capacity}%",
+    "format-plugged": "<span font='10' color='#EC0A52'></span> <span font='12' color='#5EF6FF'>{icon}</span>  {capacity}%",
+    "format-alt": "<span color='#5EF6FF' font='12'>{icon}</span>  {time}",
     "tooltip": true,
     "tooltip-format": "<span font='12' color='#F14D41'>󰄌 <b>BATTERY</b>\t\t  </span>\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n<span font='12' color='#F14D41'><b>LEVEL</b></span>\t{capacity}%\n<span font='12' color='#F14D41'> 󰔟</span>\t\t{timeTo}\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n<span color='#592023'>󰁱󰁱 󰁱󰁱 󰁱󰁱󰁱</span>",
     "format-icons": [
-      "󰂎","󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰂂","󰁹"
+      "󰪞",
+      "󰪟",
+      "󰪠",
+      "󰪡",
+      "󰪢",
+      "󰪣",
+      "󰪤",
+      "󰪥"
+      // " ",
+      // " ",
+      // " ",
+      // " ",
+      // " ",
+      // " ",
+      // " ",
+      // " "
     ]
   },
   // CLOCK ********************************************************************
   "clock": {
     "tooltip": true,
     "interval": 60,
-    "format": "{:%a %d <span font='15' rise='-3000'>%H:%M</span>}",
+    "format": "<span font='15' color='#1DEE83' rise='-3000'>{:%H:%M</span> %a %d}",
     "tooltip-format": "<span font='Hurmit Nerd Font Mono' size='10pt'>{calendar}</span>",
     "calendar": {
       "mode": "month",
@@ -208,7 +227,7 @@
     "tooltip": false
   },
   "custom/border#left": {
-    "format": "<b><span line_height='0.8'>0\n2</span></b>",
+    "format": "<b><span line_height='0.8'>0\n3</span></b>",
     "tooltip": false
   },
   "custom/corner#top": {

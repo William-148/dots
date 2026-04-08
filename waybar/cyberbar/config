@@ -4,14 +4,15 @@
 // ██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
 // ╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
 //  ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-// by Willi (2025)
+// by Willi (2026)
 // ---------------------------------------------------------------------------
 //
 {
+  // "output": "eDP-1",
   "layer": "top",
   "margin-right": 10,
   "margin-left": 10,
-  "margin-top": 0,
+  "margin-top": 4,
   // IMPORTING MODULES
   "include": [
     "~/.config/waybar/modules.jsonc"
@@ -19,7 +20,7 @@
   // MODULES LAYOUT
   "modules-left": [
     "group/launcher-container",
-    "custom/icon-arrow",
+    // "custom/icon-arrow",
     // ------------
     "custom/border#left",
     "memory",

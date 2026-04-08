@@ -5,24 +5,38 @@
  * ██║       ╚██╔╝  ██╔══██╗██╔══╝  ██╔══██╗██║███╗██║██╔══██║  ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
  * ╚██████╗   ██║   ██████╔╝███████╗██║  ██║╚███╔███╔╝██║  ██║   ██║   ██████╔╝██║  ██║██║  ██║
  *  ╚═════╝   ╚═╝   ╚═════╝ ╚══════╝╚═╝  ╚═╝ ╚══╝╚══╝ ╚═╝  ╚═╝   ╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
- * By Willi (2025)
+ * By Willi (2026)
  */
 
 /* ---------------------------------------------------------------------------
  * COLORS
  * --------------------------------------------------------------------------- */
-@define-color bg-default rgba(14, 14, 23, 0.85); /* #0E0E17 */
+@define-color bg-default rgba(14, 14, 23, 0.88); /* #0E0E17 */
 @define-color fg-default #F14D41; /* rgba(241, 77, 65, 1) */
 @define-color border-default #FF3B45; /* rgba(255, 59, 69, 1) */
 @define-color border-darker #592023;
 @define-color ui-cyan #5EF6FF; /* rgba(94, 246, 255, 1) */
 @define-color ui-yellow #FCF00A; /* rgba(252, 240, 10, 1) */
 @define-color ui-magenta #EC0A52; /* rgba(236, 10, 82, 1) */
+@define-color ui-green-mint #1DEE83;
+@define-color ui-orange #FB932E;
 
 @define-color warning-bg rgba(102, 0, 204, 0.8); /* #0A00CC */
 @define-color warning-fg #FF45FF;
 
 @define-color battery-plugged #99d117;
+
+@define-color hud-border #B32930;
+/* @define-color hud-bracket-border #FB932E; */
+/* @define-color hud-bracket-bg #FB932E; */
+@define-color hud-bracket-border #Ff3B45;
+@define-color hud-bracket-bg #FF3B45;
+
+/* @define-color hud-bracket-fg #5EF6FF; */
+@define-color hud-bracket-fg black;
+
+
+
 
 /* ---------------------------------------------------------------------------
  * GENERAL
@@ -82,7 +96,7 @@ tooltip label {
  * --------------------------------------------------------------------------- */
 #custom-icon-arrow {
     font-size: 1.5rem;
-    margin: 0.31em 0.4em;
+    margin: 0.31em 0.4em 0.31em 0;
     padding: 0 0.3em 0 0.15em;
     color: @ui-magenta;
     text-shadow: 0 0 2px #FF3CAC;
@@ -98,16 +112,14 @@ tooltip label {
     );
 }
 
-#custom-border.left {
+#custom-border.left { /* Hud bracket */
     font-family: "Orbitron";
-    font-size: 0.4rem;
-    color: black;
-    padding: 0 1px;
+    font-size: 0.5rem;
+    color: @hud-bracket-fg;
     padding-bottom: 12px;
     margin-right: 1px;
-    /* background-color: #F0B537; */
-    /* background-color: #FB932E; */
-    background-color: @border-default;
+    background-color: @hud-bracket-bg;
+    border: 1px solid @hud-bracket-border;
 }
 
 
@@ -143,10 +155,10 @@ tooltip label {
 #bevel.left #custom-corner.bottom {
     background-image: linear-gradient(
         45deg,
-        transparent 47%,
-        @border-darker 47%,
-        @border-darker 53%,
-        @bg-default 53%
+        transparent 48%,
+        @hud-border 48%,
+        @hud-border 52%,
+        @bg-default 52%
     );
 }
 
@@ -182,7 +194,7 @@ tooltip label {
   font-size: 0;
 }
 #bevel-double #custom-corner.top {
-    border: 1px solid @border-darker; /* border-top-size */
+    border: 1px solid @hud-border; /* border-top-size */
     padding-top: 16px; /* corner-top-size */
     background-color: @bg-default;
 }
@@ -200,10 +212,10 @@ tooltip label {
 #bevel-double.right #custom-corner.bottom {
     background-image: linear-gradient(
         135deg,
-        @bg-default 47%,
-        @border-darker 47%,
-        @border-darker 53%,
-        transparent 53%
+        @bg-default 48%,
+        @hud-border 48%,
+        @hud-border 52%,
+        transparent 52%
       ),
       linear-gradient(
         135deg,
@@ -228,7 +240,8 @@ tooltip label {
 /* Commons */
 #c-bracket #custom-corner {
     font-size: 0;
-    border: 2px solid rgba(255,255,255,0.3); /* border-size */
+    /* border: 2px solid rgba(255,255,255,0.3); */
+    border: 2px solid @border-default; /* border-size */
     padding-top: 4px; /* corner-height */
     padding-left: 4px; /* Cornel horizontal length (width) */
 
@@ -259,6 +272,7 @@ tooltip label {
 #launcher-container {
     background: linear-gradient(to right, #fca311, @ui-yellow);
     transition: background 0.6s ease-in-out;
+    margin-right: 0.8em;
 }
 
 #launcher-container:hover {
@@ -286,17 +300,16 @@ tooltip label {
 
 
 /* ---------------------------------------------------------------------------
- * LEFT INDICATORS
+ * LEFT INDICATORS HUD
  * --------------------------------------------------------------------------- */
 #network,
 #memory {
     color: @fg-default;
-    border: 1px solid @border-darker;
+    border: 1px solid @hud-border;
     border-right: 0;
     padding: 0 0.2em 0 0.3em;
     font-size: 0.97rem;
     background-color: @bg-default;
-    /* background: linear-gradient(to right, rgba(63, 27, 31, 0.8), @bg-default); */
 }
 
 
@@ -304,12 +317,13 @@ tooltip label {
  * WORKSPACES
  * --------------------------------------------------------------------------- */
 #workspaces-container {
-  background:
-      /* linear-gradient(135deg, rgba(0,255,255,0.12), rgba(180,0,255,0.12)); */
-      /* radial-gradient(circle at top left, rgba(0,255,200,0.15), rgba(255,255,255,0.05)) */
-      /* radial-gradient(circle at top right, rgba(0,255,255,0.15), rgba(180,0,255,0.07)) */
-      radial-gradient(circle at bottom left, rgba(180,0,255,0.07), rgba(255,0,128,0.22))
-  ;
+    background-color: @bg-default;
+    background-image:
+        /* linear-gradient(135deg, rgba(0,255,255,0.12), rgba(180,0,255,0.12)); */
+        /* radial-gradient(circle at top left, rgba(0,255,200,0.15), rgba(255,255,255,0.05)) */
+        radial-gradient(circle at top right, rgba(0,255,255,0.1), rgba(180,0,255,0.07))
+        /* radial-gradient(circle at bottom left, rgba(180,0,255,0.07), rgba(255,0,128,0.22)) */
+    ;
 }
 
 #workspaces {
@@ -346,9 +360,10 @@ tooltip label {
     border: 1px solid #F14D41;
     border-width: 0 1px 0 5px;
     text-shadow: none;
-    transition: background 0.5s cubic-bezier(.36,1.24,.65,-0.84),
-            color 0.5s cubic-bezier(.36,1.24,.65,-0.84),
-            border 0.5s cubic-bezier(.36,1.24,.65,-0.84);
+    transition:
+        background 0.5s cubic-bezier(.36,1.24,.65,-0.84),
+        color 0.5s cubic-bezier(.36,1.24,.65,-0.84),
+        border 0.5s cubic-bezier(.36,1.24,.65,-0.84);
 
     background-size: 4px 4px;
     background-image: repeating-linear-gradient(45deg, 
@@ -398,9 +413,15 @@ tooltip label {
 }
 
 #pulseaudio {
-    color: @fg-default;
-    font-size: 1.04rem;
-    text-shadow: 1px 1px 2px #000;
+    color: @ui-green-mint;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-shadow:
+          1px -1px 2px #000
+        , 4px 3px 1px #1A5C66
+        , 2px 2px 1px #2B8F99
+    ;
+    padding: 0 5px;
 }
 
 #pulseaudio-slider {
@@ -413,7 +434,7 @@ tooltip label {
 }
 #pulseaudio-slider trough {
     min-width: 70px;
-    background: rgba(14, 14, 23, 0.4);
+    background-color: @bg-default;
     padding: 4px 0;
     border: 1px solid @border-darker;
     border-left: 0;
@@ -433,10 +454,10 @@ tooltip label {
     margin: 0 0.5em;
     color: @fg-default;
     background-color: @bg-default;
-    background-image: repeating-linear-gradient(135deg,
-        rgba(255, 59, 69, 0.1), rgba(255, 59, 69, 0.1) 12px,
-        transparent 12px, transparent 17px
-    );
+    /* background-image: repeating-linear-gradient(135deg, */
+    /*     rgba(255, 59, 69, 0.1), rgba(255, 59, 69, 0.1) 12px, */
+    /*     transparent 12px, transparent 17px */
+    /* ); */
     box-shadow: inset 0 0 10px rgba(236, 10, 82, 0.6);
 }
 
@@ -466,7 +487,7 @@ tooltip label {
  * --------------------------- */
 #battery.charging,
 #battery.plugged {
-    color: @battery-plugged;
+    /* color: @battery-plugged; */
 }
 
 #battery.critical:not(.charging) {
@@ -492,12 +513,22 @@ tooltip label {
  * --------------------------------------------------------------------------- */
 #clock {
     margin: 0 0.5em;
-    font-size: 0.9rem;
-    color: @ui-yellow;
+    font-size: 0.95rem;
+    /* color: @ui-yellow; */
+    /* color: @ui-orange; */
+    color: @ui-green-mint;
+    /* color: @ui-cyan; */
+    /* color: @border-default; */
     text-shadow:
-      0 0 10px #ff6600,
-      0 0 5px #ff3300,
-      0 0 5px #ff0000;
+      1px -1px 2px #000
+    , 4px 3px 1px #1A5C66
+    , 2px 2px 1px #2B8F99
+    ;
+
+    /* text-shadow: */
+    /*   0 0 5px #ff6600, */
+    /*   0 0 3px #ff3300, */
+    /*   0 0 3px #ff0000; */
 }
 
 
