@@ -91,9 +91,9 @@
     "format-muted": "{volume}<span font='12' rise='3000'>%</span> <span font='11' color='#74E1D2' rise='4000'>{icon}</span> ",
     "format-bluetooth": "{volume}<span font='12' rise='3000'>%</span> <span font='11' color='#74E1D2' rise='4000'>{icon}</span><span font='10' rise='4000' color='#FF0066'> 󰂯</span>",
     "format-bluetooth-muted": "{volume}<span font='12' rise='3000'>%</span> <span font='11' color='#74E1D2' rise='4000'>{icon}</span><span font='10' rise='4000' color='#FF0066'> 󰂯</span>",
-    "on-click": "~/.config/scripts/audio-mute.sh",
-    "on-scroll-up": "~/.config/scripts/volume.sh 5%+",
-    "on-scroll-down": "~/.config/scripts/volume.sh 5%-",
+    "on-click": "~/.local/bin/audio-mute",
+    "on-scroll-up": "~/.local/bin/volume 5%+",
+    "on-scroll-down": "~/.local/bin/volume 5%-",
     "tooltip-format": "<span font='12' color='#F14D41'>󰗅 <b>AUDIO</b>\t\t\t 󰁲 </span>\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n <span font='12' color='#F14D41'></span>\t{format_source}\n <span font='15' color='#F14D41'>󱡬</span>\t{desc}\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n<span color='#592023'>󰁱󰁱󰁱 󰁱󰁱󰁱󰁱</span>",
     "format-icons": {
       "default": [
@@ -155,8 +155,8 @@
     "device": "intel_backlight",
     "tooltip": false,
     "format": "<span font='13' line_height='0.9' color='#5EF6FF'>󰖙</span>  {}%",
-    "on-scroll-up": "~/.config/scripts/brightness.sh +2%",
-    "on-scroll-down": "~/.config/scripts/brightness.sh 2%-"
+    "on-scroll-up": "~/.local/bin/brightness +2%",
+    "on-scroll-down": "~/.local/bin/brightness 2%-"
   },
   // BATTERY
   "battery": {
