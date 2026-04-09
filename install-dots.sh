@@ -6,7 +6,7 @@ echo ">> Installing config dots into ~/.config ..."
 # instead.
 mkdir -p ~/.config/nvim
 # Create config symlink with stow
-# stow -v -t ~/.config config
+stow -v -t ~/.config config
 
 echo ">> Installing home dots into ~/ ..."
 # Create config symlink with stow
@@ -14,6 +14,6 @@ stow -v --dotfiles -t ~ home
 
 echo ">> Installing local dots into ~/.local ..."
 # Create config symlink with stow
-stow -v --dotfiles -t ~ local
+stow -v --dotfiles -t ~/.local local
 
 echo ">> Done"
