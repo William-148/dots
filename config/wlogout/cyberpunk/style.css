@@ -28,7 +28,7 @@ button {
     min-width: 150px;
     min-height: 150px;
     margin: 5em 1.15em;
-    background-image: url("./assets/hud_idle.png");
+    background-image: url("./cyberpunk/assets/hud_idle.png");
     background-repeat: no-repeat;
     background-position: center ;
     background-size: contain;
@@ -39,12 +39,12 @@ button {
 
 button:focus:hover,
 button:focus {
-    background-image: url("./assets/hud_active.png");
+    background-image: url("./cyberpunk/assets/hud_active.png");
     color: @fg-active;
 }
 
 button:hover {
-    background-image: url("./assets/hud_hover.png");
+    background-image: url("./cyberpunk/assets/hud_hover.png");
     color: @fg-hover;
 
 }
@@ -63,15 +63,15 @@ button:hover label{
 }
 
 #lock label {
-    background-image: url("./assets/lock.png");
+    background-image: url("./cyberpunk/assets/lock.png");
 }
 
 #logout label {
-    background-image: url("./assets/logout.png");
+    background-image: url("./cyberpunk/assets/logout.png");
 }
 
 #suspend label {
-    background-image: url("./assets/suspend.png");
+    background-image: url("./cyberpunk/assets/suspend.png");
 }
 
 #suspend label,
@@ -88,10 +88,10 @@ button:hover label{
 }
 
 #reboot label {
-    background-image: url("./assets/reboot.png");
+    background-image: url("./cyberpunk/assets/reboot.png");
 }
 
 #shutdown label {
-    background-image: url("./assets/shutdown.png");
+    background-image: url("./cyberpunk/assets/shutdown.png");
 }
 
