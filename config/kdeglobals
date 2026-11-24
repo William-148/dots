@@ -1,5 +1,5 @@
 [Icons]
-Theme=Vivid-Glassy-Dark-Icons
+Theme=oxygen
 
 [KDE]
 ShowDeleteCommand=false
@@ -29,4 +29,4 @@ EnableRemoteFolderThumbnail=false
 MaximumRemoteSize=0
 
 [UiSettings]
-ColorScheme=KvAdaptaDark
+ColorScheme=Default

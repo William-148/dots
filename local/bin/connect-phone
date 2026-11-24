@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+# Conectar Android mediante ADB y abrir scrcpy
+
+DEVICE=$(adb mdns services |
+    awk '$2 == "_adb-tls-connect._tcp" {print $3; exit}')
+
+if [[ -z "$DEVICE" ]]; then
+    echo "Error: No se encontró Android mediante mDNS."
+    exit 1
+fi
+
+echo "Conectando con Android: $DEVICE"
+
+if ! adb connect "$DEVICE"; then
+    echo "Error al conectar con Android."
+    exit 1
+fi
+
+scrcpy -s "$DEVICE" \
+    --turn-screen-off \
+    -m 1080 \
+    -b 6M \
+    --max-fps 60 \
+    --video-codec h264

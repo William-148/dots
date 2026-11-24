@@ -65,7 +65,8 @@
 
 tooltip {
     /* font-family: "Rajdhani Medium", "Hurmit Nerd Font", sans-serif; */
-    font-family: "Rajdhani Medium", "Hurmit Nerd Font", sans-serif; background-color: @bg-default;
+    font-family: "Rajdhani Medium", "Hurmit Nerd Font", sans-serif;
+    background-color: @bg-default;
     font-size: 1.1rem;
     border: 1px solid @border-default;
 }
@@ -355,7 +356,6 @@ tooltip label {
 #workspaces button.empty {
     transition: none;
 }
-
 #workspaces button.active {
     border: 1px solid #F14D41;
     border-width: 0 1px 0 5px;
@@ -365,13 +365,13 @@ tooltip label {
         color 0.5s cubic-bezier(.36,1.24,.65,-0.84),
         border 0.5s cubic-bezier(.36,1.24,.65,-0.84);
 
-    background-size: 4px 4px;
-    background-image: repeating-linear-gradient(45deg, 
+    background: repeating-linear-gradient(45deg, 
         #8A2E2A 0,
         #8A2E2A 1.4px,
         @bg-default 0,
         @bg-default 50%
     );
+    background-size: 4px 4px;
 }
 
 #workspaces button.special.active {
@@ -390,7 +390,6 @@ tooltip label {
     font-size: 1.1rem;
     background-color: transparent;
     padding: 0 0.4em 0 0.3em; /* To center nerdfont icon */
-    /* border: 1px solid green; */
 }
 
 /* #workspaces button.persistent label, */
@@ -414,11 +413,10 @@ tooltip label {
 
 #pulseaudio {
     color: @ui-green-mint;
-    font-size: 1.4rem;
-    font-weight: bold;
+    font-size: 1.45rem;
     text-shadow:
-          1px -1px 2px #000
-        , 4px 3px 1px #1A5C66
+          /* 1px -1px 2px #000 */
+        4px 3px 1px #1A5C66
         , 2px 2px 1px #2B8F99
     ;
     padding: 0 5px;
@@ -465,6 +463,7 @@ tooltip label {
     border-color: @ui-magenta;
 }
 
+#tray,
 #language,
 #submap,
 #bluetooth,
@@ -513,16 +512,16 @@ tooltip label {
  * --------------------------------------------------------------------------- */
 #clock {
     margin: 0 0.5em;
-    font-size: 0.95rem;
+    font-size: 0.98rem;
     /* color: @ui-yellow; */
     /* color: @ui-orange; */
     color: @ui-green-mint;
     /* color: @ui-cyan; */
     /* color: @border-default; */
     text-shadow:
-      1px -1px 2px #000
-    , 4px 3px 1px #1A5C66
-    , 2px 2px 1px #2B8F99
+      /* 1px -1px 2px #000 */
+      4px 3px 1px #1A5C66
+      , 2px 2px 1px #2B8F99
     ;
 
     /* text-shadow: */

@@ -4,6 +4,52 @@
 
 # CONNECT HEADSET ***********************************
 Headset_MAC="00:18:09:21:6F:97"
-bluetoothctl disconnect $Headset_MAC
-sleep 1
-bluetoothctl connect $Headset_MAC
+
+# Valores por defecto
+WAIT=false
+DELAY=4 # puedes ajustar esto
+
+# Parseo de argumentos
+while [[ "$#" -gt 0 ]]; do
+  case $1 in
+  -w | --wait) WAIT=true ;;
+  -d | --delay)
+    DELAY="$2"
+    shift
+    ;;
+  *)
+    echo "Opción desconocida: $1"
+    exit 1
+    ;;
+  esac
+  shift
+done
+
+# Si se activa la flag de espera
+if [ "$WAIT" = true ]; then
+  echo "Esperando $DELAY segundos por si el dispositivo se conecta automáticamente..."
+  sleep $DELAY
+fi
+
+# Verificar estado de conexión
+CONNECTED=$(bluetoothctl info $Headset_MAC | grep "Connected: yes")
+
+if [ -n "$CONNECTED" ]; then
+  echo "El headset ya está conectado. No se hace nada."
+else
+  echo "El headset no está conectado. Intentando conectar..."
+
+  bluetoothctl connect $Headset_MAC
+  sleep 2
+
+  CONNECTED=$(bluetoothctl info $Headset_MAC | grep "Connected: yes")
+
+  if [ -n "$CONNECTED" ]; then
+    echo "Conexión exitosa."
+  else
+    echo "No se pudo conectar. Intentando reiniciar conexión..."
+    bluetoothctl disconnect $Headset_MAC
+    sleep 2
+    bluetoothctl connect $Headset_MAC
+  fi
+fi

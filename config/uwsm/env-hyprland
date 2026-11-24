@@ -11,6 +11,8 @@ export HYPRCURSOR_THEME=HyprSonic
 export HYPRSHOT_DIR="$HOME/Pictures/Screenshots"
 
 # D R I   D E V I C E   S E L E C T I O N
-# export AQ_DRM_DEVICES=/dev/dri/card1:/dev/dri/card0
-# export AQ_DRM_DEVICES=/dev/dri/card0:/dev/dri/card1
+# The path was genereted by a udev rule
+# See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Multi-GPU/
+export AQ_DRM_DEVICES="/dev/dri/card-igpu"
+export __EGL_VENDOR_LIBRARY_FILENAMES="/usr/share/glvnd/egl_vendor.d/50_mesa.json"
 

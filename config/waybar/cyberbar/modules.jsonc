@@ -52,36 +52,38 @@
     ]
   },
   "hyprland/workspaces": {
-    // "disable-scroll": true,
-    "on-click": "activate",
+    "on-click": "",
     "all-outputs": false,
     "active-only": false,
-    "show-special": true,
+    "show-special": false,
     "sort-by": "id",
     "persistent-workspaces": {
       "special:magic": [],
-      "*": 6
+      "*": 5
     },
     "format": " {icon} {windows}",
     "format-icons": {
       // "default": "󰯉 ",
-      "special": ""
+      "magic": ""
     },
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
     "workspace-taskbar": {
       "enable": true,
       "update-active-window": false,
       "format": "{icon}",
-      "icon-size": 16,
+      "icon-size": 22,
       "icon-theme": "Vivid-Glassy-Dark-Icons",
-      "orientation": "horizontal"
+      "orientation": "horizontal",
+      "on-click-window": "hyprctl dispatch 'hl.dsp.focus({ window = \"address:{address}\" })'"
     }
   },
   // Audio ********************************************************************
   "group/audio": {
     "orientation": "horizontal",
     "modules": [
-      "pulseaudio",
-      "pulseaudio/slider"
+      "pulseaudio"
+      // "pulseaudio/slider"
     ]
   },
   "pulseaudio": {
@@ -92,6 +94,7 @@
     "format-bluetooth": "{volume}<span font='12' rise='3000'>%</span> <span font='11' color='#74E1D2' rise='4000'>{icon}</span><span font='10' rise='4000' color='#FF0066'> 󰂯</span>",
     "format-bluetooth-muted": "{volume}<span font='12' rise='3000'>%</span> <span font='11' color='#74E1D2' rise='4000'>{icon}</span><span font='10' rise='4000' color='#FF0066'> 󰂯</span>",
     "on-click": "~/.local/bin/audio-mute",
+    "on-click-right": "pwvucontrol",
     "on-scroll-up": "~/.local/bin/volume 5%+",
     "on-scroll-down": "~/.local/bin/volume 5%-",
     "tooltip-format": "<span font='12' color='#F14D41'>󰗅 <b>AUDIO</b>\t\t\t 󰁲 </span>\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n <span font='12' color='#F14D41'></span>\t{format_source}\n <span font='15' color='#F14D41'>󱡬</span>\t{desc}\n<span size='1pt' color='#592023'><u>\t\t\t\t\t</u></span>\n<span color='#592023'>󰁱󰁱󰁱 󰁱󰁱󰁱󰁱</span>",
@@ -116,6 +119,7 @@
     "orientation": "horizontal",
     "modules": [
       "group/c-bracket#left",
+      "tray",
       "hyprland/submap",
       "hyprland/language",
       "bluetooth",
@@ -195,7 +199,7 @@
   "clock": {
     "tooltip": true,
     "interval": 60,
-    "format": "<span font='15' color='#1DEE83' rise='-3000'>{:%H:%M</span> %a %d}",
+    "format": "<span font='16' color='#1DEE83' rise='-3000'>{:%H:%M</span> %a %d}",
     "tooltip-format": "<span font='Hurmit Nerd Font Mono' size='10pt'>{calendar}</span>",
     "calendar": {
       "mode": "month",
@@ -220,6 +224,11 @@
   "custom/power": {
     "format": "⏼",
     "on-click": "wlogout -b 5"
+  },
+  // TRAY *********************************************************************
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10
   },
   // CUSTOM ELEMENTS **********************************************************
   "custom/icon-arrow": {
